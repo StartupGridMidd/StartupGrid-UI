@@ -1,0 +1,24 @@
+{
+  "name": "StartupGrid-UI",
+  "version": "1.0.0",
+  "description": "Frontend for startupgrid.co",
+  "dependencies": {
+    "gulp-sass": "^1.2.4",
+    "gulp-uglify": "",
+    "gulp-bower": ""
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StartupGridMidd/StartupGrid-UI.git"
+  },
+  "author": "StartupGrid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StartupGridMidd/StartupGrid-UI/issues"
+  },
+  "homepage": "https://github.com/StartupGridMidd/StartupGrid-UI"
+}
