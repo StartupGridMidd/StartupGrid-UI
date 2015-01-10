@@ -7,5 +7,12 @@ The frontend for startupgrid.co
 * bower
 
 
+##To View the Webpage
+
+Run:
+  npm install
+  bower install
+
+
 
 

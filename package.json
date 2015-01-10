@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Frontend for startupgrid.co",
   "dependencies": {
+    "gulp": "",
     "gulp-sass": "^1.2.4",
     "gulp-uglify": "",
     "gulp-bower": ""
