@@ -19,6 +19,7 @@
     "bootstrap-sass-official": "",
     "underscore": "~1.7.0",
     "backbone": "~1.1.2",
-    "hogan":""
+    "hogan": "",
+    "requirejs": "*"
   }
 }

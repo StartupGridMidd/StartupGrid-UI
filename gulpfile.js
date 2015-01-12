@@ -1,17 +1,17 @@
 var gulp = require('gulp');
+
+// Include Our Plugins
+var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
+var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var bower = require('gulp-bower');
+var rename = require('gulp-rename');
 
 
-gulp.task('default', function () {
+gulp.task('default', ['sass', 'js'], function () {
    // Your default task
 });
 
-gulp.task('bower', function() {
-  return bower()
-    .pipe(gulp.dest('build/lib/'));
-});
 
 gulp.task('js', function () {
    return gulp.src('js/*.js')
@@ -19,11 +19,16 @@ gulp.task('js', function () {
       .pipe(jshint.reporter('default'))
       .pipe(uglify())
       .pipe(concat('app.js'))
-      .pipe(gulp.dest('build'));
+      .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('sass', function () {
     gulp.src('./scss/*.scss')
         .pipe(sass())
-        .pipe(gulp.dest('./build/css'));
+        .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('watch', function() {
+  gulp.watch('scss/*.scss', ['sass']);
+  gulp.watch('js/*.js', ['js']);
 });
