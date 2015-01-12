@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var nunjucks = require('gulp-nunjucks');
 
 
 gulp.task('default', ['sass', 'js'], function () {
@@ -20,6 +21,12 @@ gulp.task('js', function () {
       .pipe(uglify())
       .pipe(concat('app.js'))
       .pipe(gulp.dest('./dist/js'));
+});
+
+gulp.task('templates', function () {
+    return gulp.src('templates/index.html')
+        .pipe(nunjucks())
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('sass', function () {

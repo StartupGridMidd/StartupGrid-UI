@@ -8,23 +8,45 @@
 </head>
 <body>
   <div id="container">
-    <header id="header" class="row">
-      <div class="logo col-md-4"></div>
-      <div class="search col-md-4">
-        <input type="text" placeholder="Search Query Here..."><div class="magnifying-glass"></div>
-      </div>
-      <div class="side-nav col-md-4">
-        <div class="row">
-          <div class="col-md-3"><a href="">who we are</a></div>
-          <div class="col-md-3"><a href="">thought leaders</a></div>
-          <div class="col-md-3"><a href="">contact</a></div>
-          <div class="col-md-3"><a href="">blog</a></div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.png" alt="StartupGrid" height="60">
+          </a>
         </div>
-      </div>
-    </header>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <form class="main-search navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div><button class="btn btn-default">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">who we are</a></li>
+            <li><a href="#">thought leaders</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">blog</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
     <div id="main"></div>
   </div>
 
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
   <script data-main="js/main" src="bower_components/requirejs/require.js"></script>
 </body>
 </html>

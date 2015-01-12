@@ -4888,36 +4888,3 @@ button.close {
   .hidden-print {
     display: none !important; }
  }
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  background: #F4F0E9;
-  font-family: "Helvetica Neue", sans-serif; }
-
-#container {
-  height: inherit;
-  margin: 0;
-  padding: 0; }
-  #container .navbar .navbar-brand {
-    padding: 5px; }
-  #container .navbar .main-search > * {
-    height: 40px;
-    display: inline-block; }
-  #container .navbar .main-search .form-group input {
-    height: 40px;
-    width: 300px;
-    border: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0; }
-    #container .navbar .main-search .form-group input:focus {
-      outline: none; }
-  #container .navbar .main-search button.btn {
-    border: 0;
-    background-color: #aad9cb;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0; }
-    #container .navbar .main-search button.btn:focus {
-      outline: none; }
