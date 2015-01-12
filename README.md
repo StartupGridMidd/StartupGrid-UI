@@ -10,8 +10,9 @@ The frontend for startupgrid.co
 ##To View the Webpage
 
 Run:
-  npm install
-  bower install
+
+    npm install
+    bower install
 
 
 
