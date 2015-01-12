@@ -7,32 +7,31 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var nunjucks = require('gulp-nunjucks');
+var gulp = require('gulp');
+var browserify = require('gulp-browserify');
 
 
-gulp.task('default', ['sass', 'js'], function () {
-   // Your default task
+gulp.task('default', ['sass', 'js'], function() {});
+
+gulp.task('js', function() {
+  gulp.src('js/main.js')
+    .pipe(browserify({
+      insertGlobals: true,
+      debug: true
+    }))
+    .pipe(gulp.dest('./dist/js'));
 });
 
-
-gulp.task('js', function () {
-   return gulp.src('js/*.js')
-      .pipe(jshint())
-      .pipe(jshint.reporter('default'))
-      .pipe(uglify())
-      .pipe(concat('app.js'))
-      .pipe(gulp.dest('./dist/js'));
+gulp.task('templates', function() {
+  return gulp.src('templates/index.html')
+    .pipe(nunjucks())
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('templates', function () {
-    return gulp.src('templates/index.html')
-        .pipe(nunjucks())
-        .pipe(gulp.dest('dist'));
-});
-
-gulp.task('sass', function () {
-    gulp.src('./scss/*.scss')
-        .pipe(sass())
-        .pipe(gulp.dest('./dist/css'));
+gulp.task('sass', function() {
+  gulp.src('./scss/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('watch', function() {

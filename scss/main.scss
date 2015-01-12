@@ -5,6 +5,7 @@ $lightGreen: rgb(170,217,203);
 $cream: #F4F0E9;
 $white: #FFFFFF;
 
+
 $helvetica: "Helvetica Neue", sans-serif;
 
 html, body {
@@ -20,6 +21,7 @@ html, body {
   margin:0;
   padding:0;
   .navbar {
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
     .navbar-brand {
       padding:10px;
     }
@@ -59,6 +61,14 @@ html, body {
         }
 
       }
+    }
+  }
+  #main {
+    .sidebar {
+
+    }
+    .sg-grid {
+
     }
   }
 }

@@ -11,7 +11,6 @@ The frontend for startupgrid.co
 Run:
 
     npm install
-    bower install
 
 ##To Compile Assets
 
