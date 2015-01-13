@@ -7,9 +7,9 @@ body {
  
   height: 170px;
   background: #F4F0E9;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 25px;
-  margin: 5px;
+  margin: 15px;
 }
 
 .row {
@@ -22,10 +22,31 @@ body {
 }
 
 input {
+
+	border:5px #F4F0E9;
+	background: #F4F0E9;
 	color: #F4F0E9;
-	width: 570px ;
+	border-radius: 4px;
+	width: 500px ;
 }
 
 a {
 	color: #F4F0E9;
+}
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+li {
+	margin: 25px;
+	display: inline-block;
 }
