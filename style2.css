@@ -1,0 +1,31 @@
+
+body {
+	background: #49BEA3;
+}
+
+.subtopic-card {
+ 
+  height: 170px;
+  background: #F4F0E9;
+  border-radius: 5px;
+  font-size: 25px;
+  margin: 5px;
+}
+
+.row {
+	margin: 25px
+}
+
+.logo {
+	width: ;
+	height: ;
+}
+
+input {
+	color: #F4F0E9;
+	width: 570px ;
+}
+
+a {
+	color: #F4F0E9;
+}
