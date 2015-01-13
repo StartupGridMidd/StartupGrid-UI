@@ -1,0 +1,25 @@
+@import "bootstrap";
+
+
+.subtopic-card {
+  width: 200px;
+  height: 160px;
+  background: #49BDA3;
+  border-radius: 6px;
+  float: left;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  margin-right: 20px;
+  padding: 14px;
+  font-size: 25px;
+}
+
+.left-bar {
+	width: 150px;
+	background: #F4F0E9;
+	margin: 18px;
+	height: 600px;
+	float: left;
+	display: inline;
+}
