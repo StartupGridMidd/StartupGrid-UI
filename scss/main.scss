@@ -1,13 +1,7 @@
 @import "bootstrap";
-
-$green: #49BDA3;
-$lightGreen: rgb(170,217,203);
-$lightGray: rgb(159,159,158);
-$cream: #F4F0E9;
-$white: #FFFFFF;
-
-
-$helvetica: "Helvetica Neue", sans-serif;
+@import "subtopics";
+@import "sg_variables";
+@import "sidebar";
 
 html, body {
   margin: 0;
@@ -87,33 +81,6 @@ html, body {
         }
         &.selected {
           color: $green;
-        }
-      }
-    }
-    .sidebar {
-      font-weight: 300;
-      font-size: 17px;
-      .sidebar-item {
-        margin: 2px 0 2px 0;
-        color: $green;
-        border-radius: 2px;
-        padding: 5px;
-        i {
-          float:right;
-          padding:3px;
-        }
-        &.selected {
-          background-color: $green;
-          color: $cream;
-        }
-        &.topic {
-          margin: 6px 0 6px 0;
-        }
-        &.subtopic {
-          margin: 6px 0 6px 10px;
-        }
-        &.tag {
-          margin: 6px 0 6px 20px;
         }
       }
     }
