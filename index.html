@@ -42,17 +42,80 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-    <div id="main" class="row">
-      <div class="sidebar col-md-2">
+    <div id="main" class="">
+      <div class="sort-bar col-md-12">
+        <a href="" class="selected">relevance</a>
+        <a href="">popularity</a>
+        <a href="">recent</a>
       </div>
+      <div id="sidebar" class="sidebar col-md-2"></div>
       <div class="sg-grid col-md-10">
-        
+        <div class="card">
+          <img src="http://lorempixel.com/80/100/people/6" alt="">
+          <h2 class="author-name">Hunter Huebsch</h2>
+          <div class="author-title">Savage Ginger Capital</div>
+          <div class="blog-title">How to consume a properly Roasted Squirrel in Autumn</div>
+          <div class="choice-buttons">
+            <button class="card-btn active">Insights</button>
+            <button class="card-btn">Questions</button>
+          </div>
+          <div class="insights visible"></div>
+          <div class="questions"></div>
+          <div class="attribution">
+            <div class="attributee">HBS</div>
+            <div class="attributee">SG</div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
       </div>
     </div>
   </div>
 
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-  <script data-main="js/main" src="node_modules/requirejs/require.js"></script>
+  <script src="dist/js/main.js"></script>
+  <script id="template-card" type="text/x-mustache">
+    <div class="card">
+      <img src="{{imgUrl}}" alt="">
+      <h2 class="author-name">{{authorName}}</h2>
+      <div class="author-title">{{authorTitle}}</div>
+      <div class="blog-title">{{title}}</div>
+      <div class="choice-buttons">
+        <button class="card-btn active">Insights</button>
+        <button class="card-btn">Questions</button>
+      </div>
+      <div class="insights visible"></div>
+      <div class="questions"></div>
+      <div class="attribution">
+        <div class="attributee">HBS</div>
+        <div class="attributee">SG</div>
+      </div>
+    </div>
+  </script>
+  <script id="template-sidebar" type="text/x-mustache">
+    <div class="topics">
+    {{#topics}}
+    <div class="sidebar-item topic selected">
+      <i class="glyphicon glyphicon-remove"></i>
+      <span class="item-name">{{name}}</span>
+    </div>
+    {{/topics}}
+    </div>
+    <div class="subtopics">
+    {{#subtopics}}
+    <div class="sidebar-item subtopic selected">
+      <i class="glyphicon glyphicon-remove"></i>
+      <span class="item-name">{{name}}</span>
+    </div>
+    {{/subtopics}}
+    </div>
+    <div class="tags">
+    {{#tags}}
+    <div class="sidebar-item tag">
+      <i class="glyphicon glyphicon-remove"></i>
+      <span class="item-name">{{name}}</span>
+    </div>
+    {{/tags}}
+    </div>
+  </script>
 </body>
 </html>
