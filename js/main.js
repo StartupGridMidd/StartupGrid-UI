@@ -1,3 +1,9 @@
 var $ = require('jquery');
-var _ = require('underscore');
-var Backbone = require('backbone');
+var Sidebar = require("./sidebar");
+
+$(document).ready(function() {
+  console.log("jQuery loaded");
+  var sidebar = new Sidebar({
+    $el: $("#sidebar")
+  });
+});
