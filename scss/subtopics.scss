@@ -1,13 +1,14 @@
 @import "bootstrap";
 @import "sg_variables";
+// @import "materialize";
 
 .subtopic-card {
+  @extend .z-depth-1;
   width: 200px;
   color: $cream;
   height: 160px;
   background: $green;
   border-radius: 3px;
-  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
   float: left;
   margin-top: 15px;
   margin-left: 15px;
