@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>StartupGrid</title>
 
-  <link rel="stylesheet" type="text/css" href="scss/subtopics.css">
+  <link rel="stylesheet" type="text/css" href="dist/css/subtopics.css">
   <link rel="stylesheet" href="dist/css/main.css">
 </head>
 <body>
@@ -44,20 +44,43 @@
     </nav>
 
     <div id="main">
-    	<div class="left-bar"></div>
-        <div id="card"></div>
+      <div id="sidebar" class="sidebar col-md-2"></div>
+      <div id="sg-grid" class="sg-grid col-md-10">
     </div>
   </div>
 
-  <script type="text/template" id="subtopics-template">
-    <% _.each(subtopics,function(item) { %>
-    	<div class="subtopic-card"></div>
-    <% });%>
-  </script>
 
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-  <script data-main="js/main" src="node_modules/requirejs/require.js"></script>
-  <script src="js/subtopics-page.js"></script>
+  <script src="dist/js/main.js"></script>
+  <script type="text/x-mustache" id="template-subtopics">
+    {{#subtopics}}
+      <div class="subtopic-card">{{name}}</div>
+    {{/subtopics}}
+  </script>
+  <script id="template-sidebar" type="text/x-mustache">
+    <div class="topics">
+    {{#topics}}
+    <div class="sidebar-item topic selected">
+      <i class="glyphicon glyphicon-remove"></i>
+      <span class="item-name">{{name}}</span>
+    </div>
+    {{/topics}}
+    </div>
+    <div class="subtopics">
+    {{#subtopics}}
+    <div class="sidebar-item subtopic selected">
+      <i class="glyphicon glyphicon-remove"></i>
+      <span class="item-name">{{name}}</span>
+    </div>
+    {{/subtopics}}
+    </div>
+    <div class="tags">
+    {{#tags}}
+    <div class="sidebar-item tag">
+      <i class="glyphicon glyphicon-remove"></i>
+      <span class="item-name">{{name}}</span>
+    </div>
+    {{/tags}}
+    </div>
+  </script>
 </body>
 </html>
