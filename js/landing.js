@@ -3,6 +3,7 @@ var Backbone = require("backbone");
 var _ = require("underscore");
 var hogan = require("hogan.js");
 Backbone.$ = $;
+
 var sampleData = { topics: [
   {id: 2, name: "Operations"},
   {id: 2, name: "Entrepeneurship"},
@@ -13,9 +14,9 @@ var sampleData = { topics: [
   {id: 2, name: "Marketing & Sales"},
   {id: 2, name: "Legal "}]
 };
+
 var LandingView = Backbone.View.extend({
-  initialize: function() {
-    console.log("loading landing view");
+  initialize: function(obj) {
     this.render();
   },
   events: {
@@ -26,7 +27,7 @@ var LandingView = Backbone.View.extend({
     console.log(arguments);
   },
   goToTopic: function() {
-    console.log(arguments);
+    console.log(this.navigate);
   },
   template: function(obj) {
     return hogan.compile($("#template-landing").html()).render(obj);

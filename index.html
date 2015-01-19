@@ -10,71 +10,39 @@
   <div id="container"></div>
 
   <script src="dist/js/main.js"></script>
+
   <script id="template-navbar" type="text/x-mustache">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="img/logo.png" alt="StartupGrid" height="60">
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <form class="main-search navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div><button class="btn btn-default">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </button>
-          <a class="navbar-brand" href="#">
-            <img src="img/logo.png" alt="StartupGrid" height="60">
-          </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="main-search navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div><button class="btn btn-default">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </button>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">who we are</a></li>
-            <li><a href="#">thought leaders</a></li>
-            <li><a href="#">contact</a></li>
-            <li><a href="#">blog</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">who we are</a></li>
+          <li><a href="#">thought leaders</a></li>
+          <li><a href="#">contact</a></li>
+          <li><a href="#">blog</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
   </script>
-  <script id="template-main" type="x-mustache">
-    <div id="main" class="">
-      <div class="sort-bar col-md-12">
-        <a href="" class="selected">relevance</a>
-        <a href="">popularity</a>
-        <a href="">recent</a>
-      </div>
-      <div id="sidebar" class="sidebar col-md-2"></div>
-      <div class="sg-grid col-md-10">
-        <div class="card">
-          <img src="http://lorempixel.com/80/100/people/6" alt="">
-          <h2 class="author-name">Hunter Huebsch</h2>
-          <div class="author-title">Savage Ginger Capital</div>
-          <div class="blog-title">How to consume a properly Roasted Squirrel in Autumn</div>
-          <div class="choice-buttons">
-            <button class="card-btn active">Insights</button>
-            <button class="card-btn">Questions</button>
-          </div>
-          <div class="insights visible"></div>
-          <div class="questions"></div>
-          <div class="attribution">
-            <div class="attributee">HBS</div>
-            <div class="attributee">SG</div>
-          </div>
-        </div>
 
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </script>
   <script id="template-card" type="text/x-mustache">
     <div class="card">
       <img src="{{imgUrl}}" alt="">
@@ -93,6 +61,7 @@
       </div>
     </div>
   </script>
+
   <script id="template-sidebar" type="text/x-mustache">
     <div class="topics">
     {{#topics}}
@@ -139,7 +108,7 @@
     <div class="row">
     {{#topics}}
       <div class="col-md-3 col-sm-3 col-xs-6">
-        <div class="subtopic-card">{{name}}</div>
+        <a href="topic/{{id}}" class="subtopic-card">{{name}}</a>
       </div>
     {{/topics}}
     </div>
@@ -150,6 +119,21 @@
       <li><a href="#"> blog </a></li>
     </div>
   </div>
+  </script>
+  <script id="template-gridview" type="text/x-mustache">
+    <nav id="navbar" class="navbar navbar-default"></nav>
+    <div id="main" class="">
+      <div class="sort-bar col-md-12">
+        <a href="" class="selected">relevance</a>
+        <a href="">popularity</a>
+        <a href="">recent</a>
+      </div>
+      <div id="sidebar" class="sidebar col-md-2"></div>
+      <div class="sg-grid col-md-10">
+
+        <div class="clearfix"></div>
+      </div>
+    </div>
   </script>
 </body>
 </html>
