@@ -1,7 +1,11 @@
 @import "bootstrap";
-@import "subtopics";
+@import "sg_mixins";
 @import "sg_variables";
+
+
 @import "sidebar";
+@import "subtopics";
+@import "landing";
 
 html, body {
   margin: 0;
@@ -12,7 +16,6 @@ html, body {
   font-family: $helvetica;
 }
 #container {
-  height:inherit;
   margin:0;
   padding:0;
   .navbar {
