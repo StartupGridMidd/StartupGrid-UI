@@ -21,7 +21,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">
-          <img src="img/logo.png" alt="StartupGrid" height="60">
+          <img src="/img/logo.png" alt="StartupGrid" height="60">
         </a>
       </div>
 
@@ -65,16 +65,18 @@
   <script id="template-sidebar" type="text/x-mustache">
     <div class="topics">
     {{#topics}}
-    <div class="sidebar-item topic selected">
+    <div class="sidebar-item topic">
       <i class="glyphicon glyphicon-remove"></i>
+      <span class="number">{{count}}</span>
       <span class="item-name">{{name}}</span>
     </div>
     {{/topics}}
     </div>
     <div class="subtopics">
     {{#subtopics}}
-    <div class="sidebar-item subtopic selected">
+    <div class="sidebar-item subtopic">
       <i class="glyphicon glyphicon-remove"></i>
+      <span class="number">{{count}}</span>
       <span class="item-name">{{name}}</span>
     </div>
     {{/subtopics}}
@@ -83,6 +85,7 @@
     {{#tags}}
     <div class="sidebar-item tag">
       <i class="glyphicon glyphicon-remove"></i>
+      <span class="number">{{count}}</span>
       <span class="item-name">{{name}}</span>
     </div>
     {{/tags}}
@@ -108,7 +111,7 @@
     <div class="row">
     {{#topics}}
       <div class="col-md-3 col-sm-3 col-xs-6">
-        <a href="topic/{{id}}" class="subtopic-card">{{name}}</a>
+        <div class="subtopic-card" data-id="{{id}}">{{name}}</div>
       </div>
     {{/topics}}
     </div>
@@ -129,11 +132,18 @@
         <a href="">recent</a>
       </div>
       <div id="sidebar" class="sidebar col-md-2"></div>
-      <div class="sg-grid col-md-10">
+      <div id="sg-grid" class="sg-grid col-md-10">
 
         <div class="clearfix"></div>
       </div>
     </div>
+  </script>
+  <script id="template-maingrid" type="text/x-mustache">
+    {{#subtopics}}
+      <div class="subtopic-card">{{name}}</div>
+    {{/subtopics}}
+  </script>
+
   </script>
 </body>
 </html>

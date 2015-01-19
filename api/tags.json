@@ -1,0 +1,53 @@
+{
+  "topics": [{
+    "id": 1,
+    "name": "Operations"
+  }],
+  "subtopics": [{
+    "id": 1,
+    "name": "Product & Design"
+  }],
+  "tags": [{
+    "id": 1,
+    "name": "Design"
+  }, {
+    "id": 1,
+    "name": "UI/UX"
+  }, {
+    "id": 1,
+    "name": "Conversion"
+  }, {
+    "id": 1,
+    "name": "A/B Testing"
+  }, {
+    "id": 1,
+    "name": "Copywriting"
+  }, {
+    "id": 1,
+    "name": "Development"
+  }, {
+    "id": 1,
+    "name": "Pricing "
+  }, {
+    "id": 1,
+    "name": "Product Management "
+  }, {
+    "id": 1,
+    "name": "Features"
+  }, {
+    "id": 1,
+    "name": "User Engagement "
+  }, {
+    "id": 1,
+    "name": "Usability"
+  }, {
+    "id": 1,
+    "name": "Rapid Prototyping "
+  }, {
+    "id": 1,
+    "name": "Beta "
+  }, {
+    "id": 1,
+    "name": "Landing Page"
+  }]
+}

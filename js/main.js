@@ -6,33 +6,35 @@ var GridView = require("./grid_view");
 var LandingView = require("./landing");
 
 $(document).ready(function() {
-  console.log("Initialize Page");
 
   var AppRouter = Backbone.Router.extend({
-
     routes: {
-      "/": "landing",
-      "topic/:id": "topics"
+      "": "landing",
+      "topic/:id": "topic",
+      "subtopic/:id": "subtopic",
+      "tag/:id": "tag"
+    },
+    initialize: function() {
+
     },
     landing: function() {
-      
+      this.landingView = new LandingView({
+        el: "#container",
+        router: this
+      });
+      this.landingView.render();
     },
-    topics: function(id) {
-      console.log(id);
+    topic: function(id) {
+      this.gridView = new GridView({
+        el: "#container",
+        router: this
+      });
+      this.gridView.render({topicId: id});
     },
-    search: function(query, page) {
-
-    }
+    subtopic: function() {},
+    tag: function() {}
   });
 
-  var gridView = new GridView({
-    el: "#container"
-  });
-  var landingView = new LandingView({
-    el: "#container",
-    gridView: gridView
-  });
-  Backbone.history.start({pushState: true});
-  // var sidebar = new Sidebar({});
-  // var subtopicList = new SubtopicList({});
+  var router = new AppRouter();
+  Backbone.history.start();
 });

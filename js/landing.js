@@ -16,8 +16,8 @@ var sampleData = { topics: [
 };
 
 var LandingView = Backbone.View.extend({
-  initialize: function(obj) {
-    this.render();
+  initialize: function(params) {
+    this.router = params.router;
   },
   events: {
     "click .subtopic-card": "goToTopic",
@@ -26,8 +26,9 @@ var LandingView = Backbone.View.extend({
   search: function() {
     console.log(arguments);
   },
-  goToTopic: function() {
-    console.log(this.navigate);
+  goToTopic: function(e) {
+    var id = $(e.currentTarget).data("id");
+    this.router.navigate("topic/" + id, {trigger: true});
   },
   template: function(obj) {
     return hogan.compile($("#template-landing").html()).render(obj);

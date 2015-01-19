@@ -6,13 +6,24 @@
   background: $green;
   color: $cream;
   .subtopic-card {
-
+    transition: box-shadow .1s ease-in;
+    cursor: pointer;
     height: 170px;
     color: $lightGray;
     background: $cream;
     border-radius: 1px;
     font-size: 25px;
     margin: 15px;
+    @extend .shadow-z-1;
+    &:hover {
+      @extend .shadow-z-3;
+    }
+  }
+  li {
+    display: inline-block;
+    padding: 25px;
+    font-size: 22px;
+    font-weight: 300;
   }
 }
 

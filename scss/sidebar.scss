@@ -8,13 +8,46 @@
     color: $green;
     border-radius: 2px;
     padding: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: $lightGreen;
+      i:hover {
+        color: $cream;
+      }
+    }
+    &:active {
+      background-color: $green;
+      color: $cream;
+    }
+    span.number {
+      float: right;
+      display: none;
+      padding-right:3px;
+    }
+    &:not(.selected) {
+      i {
+        display: none;
+      }
+      span.number {
+        display: inline-block;
+      }
+    }
     i {
       float:right;
       padding:3px;
+      cursor: pointer;
+      &:hover {
+        color: $lightGreen;
+      }
     }
     &.selected {
       background-color: $green;
       color: $cream;
+      i {
+        &:hover {
+          color: $lightGreen;
+        }
+      }
     }
     &.topic {
       margin: 6px 0 6px 0;
