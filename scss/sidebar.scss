@@ -19,20 +19,9 @@
       background-color: $green;
       color: $cream;
     }
-    span.number {
-      float: right;
-      display: none;
-      padding-right:3px;
-    }
-    &:not(.selected) {
-      i {
-        display: none;
-      }
-      span.number {
-        display: inline-block;
-      }
-    }
+
     i {
+      display: none;
       float:right;
       padding:3px;
       cursor: pointer;
@@ -40,14 +29,21 @@
         color: $lightGreen;
       }
     }
+    span.number {
+      float: right;
+      padding-right:3px;
+      display: inline-block;
+    }
+    
     &.selected {
+      span.number {
+        display: none;
+      }
+      i {
+        display: block;
+      }
       background-color: $green;
       color: $cream;
-      i {
-        &:hover {
-          color: $lightGreen;
-        }
-      }
     }
     &.topic {
       margin: 6px 0 6px 0;
