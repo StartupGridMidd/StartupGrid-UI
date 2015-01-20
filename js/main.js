@@ -1,7 +1,5 @@
 var $ = require('jquery');
 var Backbone = require("backbone");
-var Sidebar = require("./sidebar");
-var SubtopicList = require("./subtopic_list");
 var GridView = require("./grid_view");
 var LandingView = require("./landing");
 
@@ -10,8 +8,7 @@ $(document).ready(function() {
   var AppRouter = Backbone.Router.extend({
     routes: {
       "": "landing",
-      "topic/:id": "topic",
-      "subtopic/:id": "subtopic",
+      "tags": "tag",
       "tag/:id": "tag"
     },
     initialize: function() {
@@ -24,15 +21,14 @@ $(document).ready(function() {
       });
       this.landingView.render();
     },
-    topic: function(id) {
+    tag: function(id) {
       this.gridView = new GridView({
         el: "#container",
-        router: this
+        router: this,
+        topicId: id
       });
-      this.gridView.render({topicId: id});
-    },
-    subtopic: function() {},
-    tag: function() {}
+      this.gridView.render();
+    }
   });
 
   var router = new AppRouter();
