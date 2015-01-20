@@ -8,6 +8,12 @@ var Navbar = Backbone.View.extend({
   initialize: function() {
     this.render();
   },
+  events: {
+    "keypress .main-search": "search"
+  },
+  search function() {
+    console.log(arguments);
+  },
   template: function() {
     return hogan.compile($("#template-navbar").html()).render({});
   },
