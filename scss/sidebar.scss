@@ -8,11 +8,40 @@
     color: $green;
     border-radius: 2px;
     padding: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: $lightGreen;
+      i:hover {
+        color: $cream;
+      }
+    }
+    &:active {
+      background-color: $green;
+      color: $cream;
+    }
+
     i {
+      display: none;
       float:right;
       padding:3px;
+      cursor: pointer;
+      &:hover {
+        color: $lightGreen;
+      }
     }
+    span.number {
+      float: right;
+      padding-right:3px;
+      display: inline-block;
+    }
+    
     &.selected {
+      span.number {
+        display: none;
+      }
+      i {
+        display: block;
+      }
       background-color: $green;
       color: $cream;
     }

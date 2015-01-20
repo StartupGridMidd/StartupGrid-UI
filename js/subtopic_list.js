@@ -44,7 +44,6 @@ var subtopics = ["Administrative",
 ];
 
 var SubtopicList = Backbone.View.extend({
-  el: "#sg-grid",
   initialize: function() {
     console.log("creating subtopics template");
     var renderObject = {
