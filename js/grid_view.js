@@ -4,32 +4,41 @@ var hogan = require("hogan.js");
 Backbone.$ = $;
 
 var Navbar = require("./navbar");
-var Sidebar = require("./sidebar");
-var MainGrid = require("./main_grid");
+var sidebar = require("./sidebar");
+var main_grid = require("./main_grid");
 
 var GridView = Backbone.View.extend({
   initialize: function(params) {
     this.router = params.router;
     this.id = params.id;
-    this.topicId = params.topicId;
+    this.tagId = params.tagId;
   },
   template: function(obj) {
     return hogan.compile($("#template-gridview").html()).render(obj);
   },
-  show: function() { this.render(); },
   render: function() {
+    var self = this;
     this.$el.html(this.template());
     this.$el.removeClass('landing');
     this.navbar = new Navbar({
       el: "#navbar"
     });
-    this.sidebar = new Sidebar({
+    this.sidebar = new sidebar.Sidebar({
       el: "#sidebar",
-      topicId: this.topicId,
-      router: this.router
+      tagId: this.tagId,
+      router: this.router,
+      model: new sidebar.SidebarModel({
+        tagId: this.tagId
+      })
     });
-    this.mainGrid = new MainGrid({
-      el: "#sg-grid"
+    this.mainGrid = new main_grid.MainGrid({
+      el: "#sg-grid",
+      model: new main_grid.MainGridModel({
+        tagId: this.tagId
+      })
+    });
+    this.sidebar.model.on("change", function() {
+      self.mainGrid.model.setId(self.sidebar.model.get("tagId"));
     });
   }
 });

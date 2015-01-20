@@ -25,7 +25,7 @@ $(document).ready(function() {
       this.gridView = new GridView({
         el: "#container",
         router: this,
-        topicId: id
+        tagId: id
       });
       this.gridView.render();
     }

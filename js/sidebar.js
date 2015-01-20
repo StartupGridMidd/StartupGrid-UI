@@ -7,7 +7,9 @@ Backbone.$ = $;
 
 var SidebarModel = Backbone.Model.extend({
   initialize: function(params) {
-    this.set("topicId", parseInt(params.topicId,10));
+    this.set("tagId", parseInt(params.tagId, 10), {
+      "silent": true
+    });
     this.fetch();
   },
   fetch: function() {
@@ -18,12 +20,14 @@ var SidebarModel = Backbone.Model.extend({
         dataType: 'json'
       })
       .done(function(data) {
-        me.defaultSelect(data, me.get("topicId"));
+        me.defaultSelect(data, me.get("tagId"));
       });
 
   },
   defaultSelect: function(topics, id) {
-    this.set("topics", topics);
+    this.set("topics", topics, {
+      "silent": true
+    });
     this.select(id);
   },
   select: function(id) {
@@ -56,7 +60,7 @@ var SidebarModel = Backbone.Model.extend({
         delete t.topicSelected;
       }
       _.each(t.children, function(st) {
-        if(topicHasSelectedSubtopic === true && st.subtopicSelected !== "selected") {
+        if (topicHasSelectedSubtopic === true && st.subtopicSelected !== "selected") {
           st.subtopicInvisible = true;
         } else {
           delete st.subtopicInvisible;
@@ -65,21 +69,23 @@ var SidebarModel = Backbone.Model.extend({
       return t;
     });
     _.each(topics, function(t) {
-        if(existsSelectedTopic === true && t.topicSelected !== "selected") {
-          t.topicInvisible = true;
-        } else {
-          delete t.topicInvisible;
-        }
+      if (existsSelectedTopic === true && t.topicSelected !== "selected") {
+        t.topicInvisible = true;
+      } else {
+        delete t.topicInvisible;
       }
-    );
-    this.set({
-      "topics": topics
     });
-    this.trigger('change');
+    this.set({
+      "tagId": id,
+      "topics": topics
+    }, {
+      silent: true
+    });
+    this.trigger("change");
   },
   deselect: function(id) {
     var invisibleTopics = false;
-    var topics = _.map(this.get("topics"), function(t) {
+    var topics = _.map(_.clone(this.get("topics")), function(t) {
       var invisibleSubtopics = false;
       var topicDeselect = false;
       if (t.id === id) {
@@ -101,45 +107,43 @@ var SidebarModel = Backbone.Model.extend({
         });
       });
       _.each(t.children, function(st) {
-        if(invisibleSubtopics) {
+        if (invisibleSubtopics) {
           delete st.subtopicInvisible;
         }
       });
       return t;
     });
     _.each(topics, function(t) {
-      if(invisibleTopics) {
+      if (invisibleTopics) {
         delete t.topicInvisible;
       }
     });
     this.set({
+      "tagId": this.deepestSelectedTagId(topics),
       "topics": topics
+    }, {
+      silent: true
     });
-    this.trigger('change');
+    this.trigger("change");
   },
-  deepestSelectedTagRoute: function() {
-    var topics = this.get("topics");
+  deepestSelectedTagId: function(topics) {
     var selected = null;
     _.each(topics, function(t) {
-      if(t.topicSelected==="selected") {selected = t;}
+      if (t.topicSelected === "selected") {
+        selected = t;
+      }
       _.each(t.children, function(st) {
-        if(t.subtopicSelected==="selected") {selected = st;}
+        if (t.subtopicSelected === "selected") {
+          selected = st;
+        }
         _.each(st.children, function(tag) {
-          if(tag.tagSelected==="selected") {selected = tag;}
+          if (tag.tagSelected === "selected") {
+            selected = tag;
+          }
         });
       });
     });
-    if(selected === null) {
-      return "/tags";
-    }
-    else {
-      return "tag/" + selected.id;
-    }
-  },
-  renderObject: function() {
-    return {
-      topics: this.get("topics")
-    };
+    return (selected === null) ? null : selected.id;
   }
 });
 var Sidebar = Backbone.View.extend({
@@ -150,23 +154,20 @@ var Sidebar = Backbone.View.extend({
     "click .sidebar-item i": "cancel"
   },
   initialize: function(params) {
-    console.log(params);
     this.router = params.router;
-    this.model = new SidebarModel({
-      topicId: params.topicId
-    });
     this.model.on("change", this.render, this);
   },
-  template: function(obj) {
-    return hogan.compile($("#template-sidebar").html()).render(obj);
+  template: function() {
+    return hogan.compile($("#template-sidebar").html()).render(this.model.attributes);
   },
   render: function() {
-    this.$el.html(this.template(this.model.renderObject()));
+    this.$el.html(this.template());
   },
   select: function(e) {
     var id = $(e.currentTarget).data("id");
     this.model.select(id);
-    this.router.navigate("tag/" + id);
+    var route = (this.model.get("tagId") === null) ? "/tags" : "tag/" + this.model.get("tagId");
+    this.router.navigate(route);
   },
   showTags: function() {
 
@@ -174,9 +175,12 @@ var Sidebar = Backbone.View.extend({
   cancel: function(e) {
     var id = $(e.currentTarget).parent().data("id");
     this.model.deselect(id);
-    ;
-    this.router.navigate(this.model.deepestSelectedTagRoute());
+    var route = (this.model.get("tagId") === null) ? "/tags" : "tag/" + this.model.get("tagId");
+    this.router.navigate(route);
     e.stopPropagation();
   }
 });
-module.exports = Sidebar;
+module.exports = {
+  Sidebar: Sidebar,
+  SidebarModel: SidebarModel
+};
