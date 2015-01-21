@@ -65,31 +65,41 @@
   <script id="template-sidebar" type="text/x-mustache">
     <div class="topics">
     {{#topics}}
-    <div class="sidebar-item topic">
+    {{^topicInvisible}}
+    <div class="sidebar-item topic {{topicSelected}}" data-id="{{id}}">
       <i class="glyphicon glyphicon-remove"></i>
       <span class="number">{{count}}</span>
       <span class="item-name">{{name}}</span>
     </div>
+      {{#topicSelected}}
+      <div class="subtopics">
+      {{#children}}
+        {{^subtopicInvisible}}
+        <div class="sidebar-item subtopic {{subtopicSelected}}" data-id="{{id}}">
+          <i class="glyphicon glyphicon-remove"></i>
+          <span class="number">{{count}}</span>
+          <span class="item-name">{{name}}</span>
+        </div>
+        {{#subtopicSelected}}
+        <div class="tags">
+          {{#children}}
+          <div class="sidebar-item tag {{tagSelected}}" data-id="{{id}}">
+            <i class="glyphicon glyphicon-remove"></i>
+            <span class="number">{{count}}</span>
+            <span class="item-name">{{name}}</span>
+          </div>
+          {{/children}}
+        </div>
+        {{/subtopicSelected}}
+        {{/subtopicInvisible}}
+      {{/children}}
+      </div>
+      {{/topicSelected}}
+    {{/topicInvisible}}
     {{/topics}}
     </div>
-    <div class="subtopics">
-    {{#subtopics}}
-    <div class="sidebar-item subtopic">
-      <i class="glyphicon glyphicon-remove"></i>
-      <span class="number">{{count}}</span>
-      <span class="item-name">{{name}}</span>
-    </div>
-    {{/subtopics}}
-    </div>
-    <div class="tags">
-    {{#tags}}
-    <div class="sidebar-item tag">
-      <i class="glyphicon glyphicon-remove"></i>
-      <span class="number">{{count}}</span>
-      <span class="item-name">{{name}}</span>
-    </div>
-    {{/tags}}
-    </div>
+
+
   </script>
   <script type="text/x-mustache" id="template-landing">
   <div class="container">
@@ -139,9 +149,11 @@
     </div>
   </script>
   <script id="template-maingrid" type="text/x-mustache">
-    {{#subtopics}}
-      <div class="subtopic-card">{{name}}</div>
-    {{/subtopics}}
+    {{#posts}}
+      <div class="subtopic-card">
+        {{title}}
+      </div>
+    {{/posts}}
   </script>
 
   </script>

@@ -4,35 +4,47 @@ var _ = require("underscore");
 var hogan = require("hogan.js");
 Backbone.$ = $;
 
-var sampleData = {
-  subtopics: [{
-    "id": 1,
-    "name": "Administrative"
-  }, {
-    "id": 1,
-    "name": "Compensation"
-  }, {
-    "id": 1,
-    "name": "Recruiting"
-  }, {
-    "id": 1,
-    "name": "Product & Design "
-  }]
-};
+var MainGridModel = Backbone.Model.extend({
+  attributes: {
+    tagId: null
+  },
+  initialize: function(params) {
+    var tagId = (params.tagId === null) ? 0 : parseInt(params.tagId, 10);
+    this.set("tagId", tagId);
+    this.fetch();
+  },
+  setId: function(id) {
+    this.set("tagId", id);
+    this.fetch();
+  },
+  fetch: function() {
+    var me = this;
+    $.ajax({
+        url: 'http://startupgrid-api-staging.herokuapp.com/tags/' + me.get("tagId") + '/posts.json',
+        type: 'GET',
+        dataType: 'json'
+      })
+      .done(function(posts) {
+        me.set("posts", posts);
+      });
+
+  }
+});
 
 var MainGrid = Backbone.View.extend({
   initialize: function(params) {
     this.router = params.router;
-    this.render();
-    console.log("Loading maingrid");
+    this.model.on("change", this.render, this);
   },
-  template: function(obj) {
-    return hogan.compile($("#template-maingrid").html()).render(obj);
+  template: function() {
+    return hogan.compile($("#template-maingrid").html()).render(this.model.attributes);
   },
   render: function() {
-    console.log(this.template(sampleData));
-    this.$el.html(this.template(sampleData));
+    this.$el.html(this.template({}));
   }
 });
 
-module.exports = MainGrid;
+module.exports = {
+  MainGrid: MainGrid,
+  MainGridModel: MainGridModel
+};
