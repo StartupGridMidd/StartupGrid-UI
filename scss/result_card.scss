@@ -2,16 +2,20 @@
 @import "sg_variables";
 
 .result-card {
-  @extend .shadow-z-2;
+  @extend .shadow-z-1;
+  cursor: pointer;
   width: 1000px;
   font-weight: 150;
-  height: 90px;
+  height: 140px;
   background: $white;
   border-radius: 1px;
+  overflow: hidden;
+  position:relative;
+  margin: 10px 0;
   .card-image {
     float: left;
     width: 90px;
-    height: 90px;
+    height: 140px;
     img {
       max-width: 100px;
       max-height: 90px;
@@ -37,7 +41,9 @@
   }
   .quote {
     position: relative;
+    color: $lightGray;
     left: -90px;
+    font-size: 13px;
   }
   a {
     font-style: thin;
