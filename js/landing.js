@@ -40,7 +40,7 @@ var LandingView = Backbone.View.extend({
   events: {
     "click .subtopic-card": "goToTopic",
     "keypress .search-input": "searchPosts",
-    "click .glyphicon": "clickSearch"
+    "click .glyphicon": "searchPosts"
   },
   searchPosts: function(e) {
     if (e.keyCode == 13) {
@@ -50,11 +50,9 @@ var LandingView = Backbone.View.extend({
       //this.router.navigate("tag/" + id, {trigger: true});
       console.log(id);
     }
-  },
-  clickSearch: function(e) {
-    var id = $(e.currentTarget).data("id");
-    if (id === "glyphicon") {
-      console.log("click pressed");
+    el = document.getElementById('landing-search-img');
+    if (el.click) {
+      console.log("clicked");
     }
   },
   goToTopic: function(e) {
