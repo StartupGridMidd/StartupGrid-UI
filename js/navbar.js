@@ -49,16 +49,18 @@ var Navbar = Backbone.View.extend({
   },
   events: {
     "keypress .form-control": "searchPosts",
-    "click .btn": "searchPosts"
+    "click .btn": "clickSearchPosts"
   },
   searchPosts: function(e) {
     if (e.keyCode == 13) {
+      clickSearchPosts();
+    }
+  },
+  clickSearchPosts: function(e) {
+    var button = $(e.currentTarget).id;
+    if ($(button).click()) {
       var searchText = document.getElementById('nav-search').value;
       console.log(searchText);
-    }
-    var button = document.getElementById('nav-search-btn');
-    if (button.click) {
-      console.log('clicked button');
     }
   },
   template: function() {
