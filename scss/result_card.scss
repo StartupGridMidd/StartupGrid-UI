@@ -4,9 +4,12 @@
 div.result-card {
   @extend .shadow-z-1;
   cursor: pointer;
-  width: 1000px;
   font-weight: 300;
-  height: 120px;
+  height: 110px;
+  transition: height .1s ease-in;
+  -webkit-transition: height .1s ease-in;
+  -moz-transition: height .1s ease-in;
+  -ms-transition: height .1s ease-in;
   &.expanded {
     height: 200px;
   }
@@ -16,32 +19,54 @@ div.result-card {
   position:relative;
   margin: 10px 0;
   padding-left: 0;
-  .card-image {
-    float: left;
+  .image-container {
+    float:left;
     width: 110px;
-    height: 120px;
-    overflow: hidden;
-    margin-right: 10px;
-    img {
+    height: 110px;
+    .card-image {
       width: 110px;
+      height: 110px;
+      overflow: hidden;
+      margin-right: 10px;
+      img {
+        width: 110px;
+      }
     }
   }
-  .card-row {
-    padding: 10px;
-    .author-name {
-      font-family: $helvetica;
-      font-size: 22px;
-    }
-    .article-title {
-      font-family: $helvetica;
-      font-size: 22px;
-    }
-    .company-name {
-      color: $lightGray;
-    }
-    .quote {
-      color: $lightGray;
-      font-size: 13px;
+  .text-container {
+    float: left;
+    width: calc(100% - 200px);
+    margin-left: 10px;
+    .card-row {
+      padding-top: 10px;
+      display: block;
+      clear:both;
+      &::after {
+        content:'';
+        clear:both;
+        display:block;
+      }
+      & > * {
+        min-height: 30px;
+      }
+      .author-name {
+        font-family: $helvetica;
+        font-size: 22px;
+        line-height: 25px;
+      }
+      .article-title {
+        font-family: $helvetica;
+        font-size: 18px;
+        line-height: 25px;
+        vertical-align: middle;
+      }
+      .company-name {
+        color: $lightGray;
+      }
+      .quote {
+        color: $lightGray;
+        font-size: 13px;
+      }
     }
   }
   .reviewers {
