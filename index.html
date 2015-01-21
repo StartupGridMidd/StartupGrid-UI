@@ -43,24 +43,6 @@
     </div><!-- /.container-fluid -->
   </script>
 
-  <script id="template-card" type="text/x-mustache">
-    <div class="card">
-      <img src="{{imgUrl}}" alt="">
-      <h2 class="author-name">{{authorName}}</h2>
-      <div class="author-title">{{authorTitle}}</div>
-      <div class="blog-title">{{title}}</div>
-      <div class="choice-buttons">
-        <button class="card-btn active">Insights</button>
-        <button class="card-btn">Questions</button>
-      </div>
-      <div class="insights visible"></div>
-      <div class="questions"></div>
-      <div class="attribution">
-        <div class="attributee">HBS</div>
-        <div class="attributee">SG</div>
-      </div>
-    </div>
-  </script>
 
   <script id="template-sidebar" type="text/x-mustache">
     <div class="topics">
@@ -150,8 +132,20 @@
   </script>
   <script id="template-maingrid" type="text/x-mustache">
     {{#posts}}
-      <div class="subtopic-card">
-        {{title}}
+      <div class="result-card col-md-11" data-url="{{url}}">
+        <div class = "card-image">
+          <img src="{{imgUrl}}">
+        </div>
+        <div class="col-md-3 author-name">{{author.name}}</div>
+        <div class="col-md-6 article-title">{{title}}</div>
+        <div class-"col-md-1">
+         <ul>
+           <a>SG</a>
+         </ul>
+        </div>
+    
+        <div class="col-md-3 company-name">{{author.company}}</div>
+        <div class="col-md-7 quote">{{quote_1}}</div>
       </div>
     {{/posts}}
   </script>
