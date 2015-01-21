@@ -16,10 +16,10 @@
       max-width: 100px;
       max-height: 90px;
     }
-  }
+}
   .author-name {
     position: relative;
-    left: -30px;
+    left: -60px;
     padding-top: 15px;
     font-family: $helvetica;
     font-size: 22px;
@@ -29,20 +29,20 @@
     font-size: 22px;
     padding-top: 15px;
     position: relative;
-    left: -90px;
+    left: -110px;
   }
   .company-name {
     position: relative;
-    left: -30px;
+    left: -60px;
   }
   .quote {
     position: relative;
-    left: -90px;
+    left: -110px;
   }
   a {
     font-style: thin;
     position: relative;
-    right: -115px;
+    right: -65px;
     top: 5px;
     color: $green;
     border: solid thin;
@@ -50,7 +50,15 @@
     font-size: 8px;
   }
 }
-
+  .result-card .expanded-view {
+    display: none;
+  }
+  .result-card.expanded .expanded-view {
+    display: block;
+    width: 1000px;
+    font-weight: 150;
+    height: 180px;
+  }
 
 
 

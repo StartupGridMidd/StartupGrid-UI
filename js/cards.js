@@ -1,10 +1,29 @@
-var $ = require("jquery");
-var Backbone = require("backbone");
-var _ = require("underscore");
-var hogan = require("hogan.js");
+$(document).ready(function() {
+    $(".card").click(function() {
+        $(this).toggleClass("expanded");
+    });
 
-var CardExpand = Backbone.View.expand({
+});
 
-})
 
-module.exports = CardExpand;
+var MyView = Backbone.View.extend({
+    events: {
+        "click .card": "toggle"  
+    },
+    initialize: function() {
+        
+    },
+    template: function() {
+        hogan.compile($("#template-card").html()).render({
+            important: "important-car"
+        });  
+    },
+    render: function() {
+       
+    },
+    toggle: function(event) {
+        $(event.currentTarget).toggleClass("expanded");   
+    }
+    
+    
+});
