@@ -11,7 +11,7 @@ var LandingModel = Backbone.Model.extend({
   fetch: function() {
     var me = this;
     $.ajax({
-      url: 'http://startupgrid-api-staging.herokuapp.com/topics.json',
+      url: 'http://startupgrid-api-production.herokuapp.com/topics.json',
       type: 'GET',
       dataType: 'json'
     })
@@ -22,7 +22,7 @@ var LandingModel = Backbone.Model.extend({
   fetchTags: function() {
     var me = this;
     $.ajax({
-      url: 'http://startupgrid-api-staging.herokuapp.com/tags.json',
+      url: 'http://startupgrid-api-production.herokuapp.com/tags.json',
       type: 'GET',
       dataType: 'json'
     })

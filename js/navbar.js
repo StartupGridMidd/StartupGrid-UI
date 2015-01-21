@@ -11,7 +11,7 @@ var NavBarModel = Backbone.Model.extend({
   fetchTags: function() {
     var me = this;
     $.ajax({
-      url: 'http://startupgrid-api-staging.herokuapp.com/tags.json',
+      url: 'http://startupgrid-api-production.herokuapp.com/tags.json',
       type: 'GET',
       dataType: 'json'
     })
@@ -22,7 +22,7 @@ var NavBarModel = Backbone.Model.extend({
   fetchAuthors: function() {
     var me = this;
     $.ajax({
-      url: 'http://startupgrid-api-staging.herokuapp.com/authors.json',
+      url: 'http://startupgrid-api-production.herokuapp.com/authors.json',
       type: 'GET',
       dataType: 'json'
     })
@@ -33,7 +33,7 @@ var NavBarModel = Backbone.Model.extend({
   fetchPosts: function() {
     var me = this;
     $.ajax({
-      url: 'http://startupgrid-api-staging.herokuapp.com/posts.json',
+      url: 'http://startupgrid-api-production.herokuapp.com/posts.json',
       type: 'GET',
       dataType: 'json'
     })
