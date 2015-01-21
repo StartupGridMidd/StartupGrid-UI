@@ -1,0 +1,62 @@
+@import "bootstrap";
+@import "sg_variables";
+
+.result-card {
+  @extend .shadow-z-2;
+  width: 1000px;
+  font-weight: 150;
+  height: 90px;
+  background: $white;
+  border-radius: 1px;
+}
+
+.card-image {
+  float: left;
+  width: 90px;
+  height: 90px;
+}
+
+.card-image img {
+  max-width: 100px;
+  max-height: 90px;
+}
+
+.author-name {
+  position: relative;
+  left: -30px;
+  padding-top: 15px;
+  font-family: $helvetica;
+  font-size: 22px;
+ }
+
+ .article-title {
+   font-family: $helvetica;
+   font-size: 22px;
+   padding-top: 15px;
+   position: relative;
+   left: -90px;
+ }
+
+ .company-name {
+   position: relative;
+   left: -30px;
+ }
+
+.quote {
+  position: relative;;
+  left: -90px;
+}
+
+a {
+  font-style: thin;
+  position: relative;
+  right: -115px;
+  top: 5px;
+  
+  color: $green;
+  border: solid thin;
+  border-radius: 3px;
+
+
+  font-size: 8px;
+}

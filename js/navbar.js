@@ -9,10 +9,14 @@ var Navbar = Backbone.View.extend({
     this.render();
   },
   events: {
-    "keypress .main-search": "search"
+    "keypress .main-search": "searchPosts"
   },
-  search function() {
-    console.log(arguments);
+  searchPosts: function(e) {
+    if (e.keyCode == 13) {
+      console.log("enter Pressed");
+      var searchText = document.getElementById('nav-search').value;
+      console.log(searchText);
+    }
   },
   template: function() {
     return hogan.compile($("#template-navbar").html()).render({});
