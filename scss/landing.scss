@@ -1,0 +1,70 @@
+@import "bootstrap";
+@import "sg_variables";
+
+
+#container.landing {
+  background: $green;
+  color: $cream;
+  .subtopic-card {
+    transition: box-shadow .1s ease-in;
+    cursor: pointer;
+    height: 170px;
+    color: $lightGray;
+    background: $cream;
+    border-radius: 1px;
+    font-size: 23px;
+    margin: 15px;
+    @extend .shadow-z-1;
+    img {
+      opacity: 0.4;
+      margin: 12px 0;
+    }
+    &:hover {
+      @extend .shadow-z-3;
+    }
+  }
+  li {
+    display: inline-block;
+    padding: 25px;
+    font-size: 22px;
+    font-weight: 300;
+  }
+}
+
+
+.row {
+  margin: 25px
+}
+
+.logo {
+
+}
+input {
+  border:5px #F4F0E9;
+  background: #F4F0E9;
+  color: #F4F0E9;
+  border-radius: 4px;
+  width: 500px ;
+}
+
+a {
+  color: #F4F0E9;
+}
+
+.left-inner-addon {
+  border-radius: 1px;
+  i {
+    font-size: 28px;
+    color: $green;
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+  }
+  input.form-control {
+    font-weight: 300;
+    padding-left: 50px;
+    border:0;
+    border-radius: 1px;
+    @extend .shadow-z-1;
+  }
+}

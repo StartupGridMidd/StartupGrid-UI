@@ -1,9 +1,36 @@
 var $ = require('jquery');
-var Sidebar = require("./sidebar");
+var Backbone = require("backbone");
+var GridView = require("./grid_view");
+var LandingView = require("./landing");
 
 $(document).ready(function() {
-  console.log("jQuery loaded");
-  var sidebar = new Sidebar({
-    $el: $("#sidebar")
+
+  var AppRouter = Backbone.Router.extend({
+    routes: {
+      "": "landing",
+      "tags": "tag",
+      "tag/:id": "tag"
+    },
+    initialize: function() {
+
+    },
+    landing: function() {
+      this.landingView = new LandingView({
+        el: "#container",
+        router: this
+      });
+      this.landingView.render();
+    },
+    tag: function(id) {
+      this.gridView = new GridView({
+        el: "#container",
+        router: this,
+        tagId: id
+      });
+      this.gridView.render();
+    }
   });
+
+  var router = new AppRouter();
+  Backbone.history.start();
 });
