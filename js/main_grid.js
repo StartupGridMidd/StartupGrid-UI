@@ -32,6 +32,10 @@ var MainGridModel = Backbone.Model.extend({
 });
 
 var MainGrid = Backbone.View.extend({
+  events: {
+    "click .result-card": "expand",
+    "click .result-card.expanded": "goToPost"
+  },
   initialize: function(params) {
     this.router = params.router;
     this.model.on("change", this.render, this);
@@ -41,6 +45,13 @@ var MainGrid = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template({}));
+  },
+  expand: function(e) {
+    $(e.currentTarget).addClass('expanded');
+  },
+  goToPost: function(e) {
+    var url = $(e.currentTarget).data("url");
+    window.open(url, '_blank');
   }
 });
 

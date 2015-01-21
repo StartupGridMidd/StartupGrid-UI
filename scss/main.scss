@@ -2,7 +2,11 @@
 @import "sg_mixins";
 @import "sg_variables";
 
+<<<<<<< HEAD
 @import "resultCard";
+=======
+@import "result_card";
+>>>>>>> master
 @import "sidebar";
 @import "subtopics";
 @import "landing";
@@ -19,6 +23,7 @@ html, body {
 #container {
   margin:0;
   padding:0;
+  min-height: 100%;
   .navbar {
     @extend .shadow-z-1;
     .navbar-brand {
