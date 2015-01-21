@@ -1,59 +1,62 @@
 @import "bootstrap";
 @import "sg_variables";
 
-.result-card {
+div.result-card {
   @extend .shadow-z-1;
   cursor: pointer;
   width: 1000px;
-  font-weight: 150;
-  height: 140px;
+  font-weight: 300;
+  height: 120px;
+  &.expanded {
+    height: 200px;
+  }
   background: $white;
   border-radius: 1px;
   overflow: hidden;
   position:relative;
   margin: 10px 0;
+  padding-left: 0;
   .card-image {
     float: left;
-    width: 90px;
-    height: 140px;
+    width: 110px;
+    height: 120px;
+    overflow: hidden;
+    margin-right: 10px;
     img {
-      max-width: 100px;
-      max-height: 90px;
+      width: 110px;
     }
   }
-  .author-name {
-    position: relative;
-    left: -30px;
-    padding-top: 15px;
-    font-family: $helvetica;
-    font-size: 22px;
+  .card-row {
+    padding: 10px;
+    .author-name {
+      font-family: $helvetica;
+      font-size: 22px;
+    }
+    .article-title {
+      font-family: $helvetica;
+      font-size: 22px;
+    }
+    .company-name {
+      color: $lightGray;
+    }
+    .quote {
+      color: $lightGray;
+      font-size: 13px;
+    }
   }
-  .article-title {
-    font-family: $helvetica;
-    font-size: 22px;
-    padding-top: 15px;
-    position: relative;
-    left: -90px;
-  }
-  .company-name {
-    position: relative;
-    left: -30px;
-  }
-  .quote {
-    position: relative;
-    color: $lightGray;
-    left: -90px;
-    font-size: 13px;
-  }
-  a {
-    font-style: thin;
-    position: relative;
-    right: -115px;
-    top: 5px;
-    color: $green;
-    border: solid thin;
-    border-radius: 3px;
-    font-size: 8px;
+  .reviewers {
+    float: right;
+    margin-top:15px;
+    li {
+      font-style: 300;
+      display: inline-block;
+      padding: 3px;
+      top: 5px;
+      color: $green;
+      border: 1pt solid $green;
+      border-radius: 3px;
+      font-size: 10px;
+    }
   }
 }
 

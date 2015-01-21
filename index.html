@@ -10,7 +10,6 @@
   <div id="container"></div>
 
   <script src="dist/js/main.js"></script>
-
   <script id="template-navbar" type="text/x-mustache">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -133,19 +132,22 @@
   <script id="template-maingrid" type="text/x-mustache">
     {{#posts}}
       <div class="result-card col-md-11" data-url="{{url}}">
-        <div class = "card-image">
-          <img src="{{imgUrl}}">
-        </div>
-        <div class="col-md-3 author-name">{{author.name}}</div>
-        <div class="col-md-6 article-title">{{title}}</div>
-        <div class-"col-md-1">
-         <ul>
-           <a>SG</a>
+         <ul class="reviewers">
+           <li>SG</li>
          </ul>
+
+        <div class = "card-image">
+          <img src="{{author.image_url}}" alt="">
+        </div>
+        <div class="card-row">
+          <div class="col-md-3 author-name">{{author.name}}</div>
+          <div class="col-md-6 article-title">{{title}}</div>
         </div>
     
-        <div class="col-md-3 company-name">{{author.company}}</div>
-        <div class="col-md-7 quote">{{quote_1}}</div>
+        <div class="card-row">
+          <div class="col-md-3 company-name">{{author.title}}</div>
+          <div class="col-md-7 quote">{{summary}}</div>
+        </div>
       </div>
     {{/posts}}
   </script>
