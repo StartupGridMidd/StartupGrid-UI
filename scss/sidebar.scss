@@ -1,0 +1,58 @@
+@import "sg_variables";
+
+.sidebar {
+  font-weight: 300;
+  font-size: 17px;
+  .sidebar-item {
+    margin: 2px 0 2px 0;
+    color: $green;
+    border-radius: 2px;
+    padding: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: $lightGreen;
+      i:hover {
+        color: $cream;
+      }
+    }
+    &:active {
+      background-color: $green;
+      color: $cream;
+    }
+
+    i {
+      display: none;
+      float:right;
+      padding:3px;
+      cursor: pointer;
+      &:hover {
+        color: $lightGreen;
+      }
+    }
+    span.number {
+      float: right;
+      padding-right:3px;
+      display: inline-block;
+    }
+    
+    &.selected {
+      span.number {
+        display: none;
+      }
+      i {
+        display: block;
+      }
+      background-color: $green;
+      color: $cream;
+    }
+    &.topic {
+      margin: 6px 0 6px 0;
+    }
+    &.subtopic {
+      margin: 6px 0 6px 10px;
+    }
+    &.tag {
+      margin: 6px 0 6px 20px;
+    }
+  }
+}

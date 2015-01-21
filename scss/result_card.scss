@@ -1,0 +1,68 @@
+@import "bootstrap";
+@import "sg_variables";
+
+.result-card {
+  @extend .shadow-z-2;
+  width: 1000px;
+  font-weight: 150;
+  height: 90px;
+  background: $white;
+  border-radius: 1px;
+  .card-image {
+    float: left;
+    width: 90px;
+    height: 90px;
+    img {
+      max-width: 100px;
+      max-height: 90px;
+    }
+}
+  .author-name {
+    position: relative;
+    left: -60px;
+    padding-top: 15px;
+    font-family: $helvetica;
+    font-size: 22px;
+  }
+  .article-title {
+    font-family: $helvetica;
+    font-size: 22px;
+    padding-top: 15px;
+    position: relative;
+    left: -110px;
+  }
+  .company-name {
+    position: relative;
+    left: -60px;
+  }
+  .quote {
+    position: relative;
+    left: -110px;
+  }
+  a {
+    font-style: thin;
+    position: relative;
+    right: -65px;
+    top: 5px;
+    color: $green;
+    border: solid thin;
+    border-radius: 3px;
+    font-size: 8px;
+  }
+}
+  .result-card .expanded-view {
+    display: none;
+  }
+  .result-card.expanded .expanded-view {
+    display: block;
+    width: 1000px;
+    font-weight: 150;
+    height: 180px;
+  }
+
+
+
+
+
+
+
