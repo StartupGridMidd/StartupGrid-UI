@@ -12,9 +12,13 @@
     color: $lightGray;
     background: $cream;
     border-radius: 1px;
-    font-size: 25px;
+    font-size: 23px;
     margin: 15px;
     @extend .shadow-z-1;
+    img {
+      opacity: 0.4;
+      margin: 12px 0;
+    }
     &:hover {
       @extend .shadow-z-3;
     }
