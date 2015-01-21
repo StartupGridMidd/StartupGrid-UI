@@ -6,7 +6,8 @@ Backbone.$ = $;
 
 var MainGridModel = Backbone.Model.extend({
   attributes: {
-    tagId: null
+    tagId: null,
+    router: null
   },
   initialize: function(params) {
     var tagId = (params.tagId === null) ? 0 : parseInt(params.tagId, 10);
@@ -19,8 +20,15 @@ var MainGridModel = Backbone.Model.extend({
   },
   fetch: function() {
     var me = this;
+    var tagPortion;
+    if(this.get("tagId") !== null) {
+      tagPortion = '/tags/' + me.get("tagId");
+    } else {
+      tagPortion = '';
+    }
+    var fetchUrl = 'http://startupgrid-api-production.herokuapp.com' + tagPortion + '/posts.json';
     $.ajax({
-        url: 'http://startupgrid-api-production.herokuapp.com/tags/' + me.get("tagId") + '/posts.json',
+        url: fetchUrl,
         type: 'GET',
         dataType: 'json'
       })
@@ -34,7 +42,8 @@ var MainGridModel = Backbone.Model.extend({
 var MainGrid = Backbone.View.extend({
   events: {
     "click .result-card": "expand",
-    "click .result-card.expanded": "goToPost"
+    "click .result-card.expanded": "goToPost",
+    "click .tag": "select"
   },
   initialize: function(params) {
     this.router = params.router;
@@ -52,7 +61,12 @@ var MainGrid = Backbone.View.extend({
   goToPost: function(e) {
     var url = $(e.currentTarget).data("url");
     window.open(url, '_blank');
-  }
+  },
+  select: function(e) {
+    var id = $(e.currentTarget).data("id");
+    this.router.navigate("tag/"+id, {trigger: true});
+    e.stopPropagation();
+  },
 });
 
 module.exports = {

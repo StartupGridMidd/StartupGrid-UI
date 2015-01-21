@@ -33,8 +33,10 @@ var GridView = Backbone.View.extend({
     });
     this.mainGrid = new main_grid.MainGrid({
       el: "#sg-grid",
+      router: this.router,
       model: new main_grid.MainGridModel({
-        tagId: this.tagId
+        tagId: this.tagId,
+        router: this.router
       })
     });
     this.sidebar.model.on("change", function() {

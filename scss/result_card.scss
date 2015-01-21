@@ -11,7 +11,7 @@ div.result-card {
   -moz-transition: height .1s ease-in;
   -ms-transition: height .1s ease-in;
   &.expanded {
-    height: 200px;
+    height: auto;
   }
   background: $white;
   border-radius: 1px;
@@ -64,8 +64,20 @@ div.result-card {
         color: $lightGray;
       }
       .quote {
+        height: 40px;
         color: $lightGray;
         font-size: 13px;
+        overflow: hidden;
+        transition: height .1s ease-in;
+      }
+    }
+  }
+  &.expanded {
+    .text-container {
+      .card-row {
+        .quote {
+          height: auto;
+        }
       }
     }
   }
@@ -81,6 +93,21 @@ div.result-card {
       border: 1pt solid $green;
       border-radius: 3px;
       font-size: 10px;
+    }
+  }
+  .expanded-section {
+    .tags {
+      padding: 10px 0;
+      text-align: right;
+      .tag {
+        display: inline-block;
+        padding: 4px;
+        margin: 0 2px;
+        border: 1pt solid $cream;
+        background: $green;
+        color: $cream;
+        border-radius: 1px;
+      }
     }
   }
 }
