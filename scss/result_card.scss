@@ -1,59 +1,87 @@
 @import "bootstrap";
 @import "sg_variables";
 
-.result-card {
+div.result-card {
   @extend .shadow-z-1;
   cursor: pointer;
-  width: 1000px;
-  font-weight: 150;
-  height: 140px;
+  font-weight: 300;
+  height: 110px;
+  transition: height .1s ease-in;
+  -webkit-transition: height .1s ease-in;
+  -moz-transition: height .1s ease-in;
+  -ms-transition: height .1s ease-in;
+  &.expanded {
+    height: 200px;
+  }
   background: $white;
   border-radius: 1px;
   overflow: hidden;
   position:relative;
   margin: 10px 0;
-  .card-image {
-    float: left;
-    width: 90px;
-    height: 140px;
-    img {
-      max-width: 100px;
-      max-height: 90px;
+  padding-left: 0;
+  .image-container {
+    float:left;
+    width: 110px;
+    height: 110px;
+    .card-image {
+      width: 110px;
+      height: 110px;
+      overflow: hidden;
+      margin-right: 10px;
+      img {
+        width: 110px;
+      }
     }
-}
-  .author-name {
-    position: relative;
-    left: -60px;
-    padding-top: 15px;
-    font-family: $helvetica;
-    font-size: 22px;
   }
-  .article-title {
-    font-family: $helvetica;
-    font-size: 22px;
-    padding-top: 15px;
-    position: relative;
-    left: -110px;
+  .text-container {
+    float: left;
+    width: calc(100% - 200px);
+    margin-left: 10px;
+    .card-row {
+      padding-top: 10px;
+      display: block;
+      clear:both;
+      &::after {
+        content:'';
+        clear:both;
+        display:block;
+      }
+      & > * {
+        min-height: 30px;
+      }
+      .author-name {
+        font-family: $helvetica;
+        font-size: 22px;
+        line-height: 25px;
+      }
+      .article-title {
+        font-family: $helvetica;
+        font-size: 18px;
+        line-height: 25px;
+        vertical-align: middle;
+      }
+      .company-name {
+        color: $lightGray;
+      }
+      .quote {
+        color: $lightGray;
+        font-size: 13px;
+      }
+    }
   }
-  .company-name {
-    position: relative;
-    left: -60px;
-  }
-  .quote {
-    position: relative;
-    left: -110px;
-    color: $lightGray;
-    font-size: 13px;
-  }
-  a {
-    font-style: thin;
-    position: relative;
-    right: -65px;
-    top: 5px;
-    color: $green;
-    border: solid thin;
-    border-radius: 3px;
-    font-size: 8px;
+  .reviewers {
+    float: right;
+    margin-top:15px;
+    li {
+      font-style: 300;
+      display: inline-block;
+      padding: 3px;
+      top: 5px;
+      color: $green;
+      border: 1pt solid $green;
+      border-radius: 3px;
+      font-size: 10px;
+    }
   }
 }
   .result-card .expanded-view {

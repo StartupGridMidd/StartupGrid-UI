@@ -10,7 +10,6 @@
   <div id="container"></div>
 
   <script src="dist/js/main.js"></script>
-
   <script id="template-navbar" type="text/x-mustache">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -103,7 +102,10 @@
     <div class="row">
     {{#topics}}
       <div class="col-md-3 col-sm-3 col-xs-6">
-        <div class="subtopic-card" data-id="{{id}}">{{name}}</div>
+        <div class="subtopic-card" data-id="{{id}}">
+        <div><img src="img/ui-elements/{{name}}.png" alt="" width="50"/></div>
+        {{name}}
+        </div>
       </div>
     {{/topics}}
     </div>
@@ -133,19 +135,25 @@
   <script id="template-maingrid" type="text/x-mustache">
     {{#posts}}
       <div class="result-card col-md-11" data-url="{{url}}">
-        <div class = "card-image">
-          <img src="{{imgUrl}}">
-        </div>
-        <div class="col-md-3 author-name">{{author.name}}</div>
-        <div class="col-md-6 article-title">{{title}}</div>
-        <div class-"col-md-1">
-         <ul>
-           <a>SG</a>
+         <ul class="reviewers">
+           <li>SG</li>
          </ul>
+        <div class="image-container">
+          <div class="card-image">
+            <img src="{{author.image_url}}" alt="">
+          </div>
         </div>
-    
-        <div class="col-md-3 company-name">{{author.company}}</div>
-        <div class="col-md-7 quote">{{quote_1}}</div>
+        <div class="text-container">
+          <div class="card-row">
+            <div class="col-md-3 author-name">{{author.name}}</div>
+            <div class="col-md-9 article-title">{{title}}</div>
+          </div>
+      
+          <div class="card-row">
+            <div class="col-md-3 company-name">{{author.title}}</div>
+            <div class="col-md-9 quote">{{summary}}</div>
+          </div>
+        </div>
       </div>
     {{/posts}}
   </script>
