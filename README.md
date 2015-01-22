@@ -11,6 +11,8 @@ The frontend for startupgrid.co
 Run:
 
     npm install
+    gulp watch
+    python -m SimpleHTTPServer 8000
 
 ##To Compile Assets
 
@@ -21,3 +23,6 @@ Run:
     gulp watch
 
 
+##To Run a HTTP Server from the directory
+
+    python -m SimpleHTTPServer 8000
