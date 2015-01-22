@@ -6,6 +6,7 @@ Backbone.$ = $;
 var LandingModel = Backbone.Model.extend({
   initialize: function() {
     this.fetch();
+    this.fetchTags();
   },
   fetch: function() {
     var me = this;
@@ -17,7 +18,39 @@ var LandingModel = Backbone.Model.extend({
     .done(function(data) {
       me.set("topics", data);
     });
-    
+  },
+  fetchTags: function() {
+    var me = this;
+    $.ajax({
+      url: 'http://startupgrid-api-production.herokuapp.com/tags.json',
+      type: 'GET',
+      dataType: 'json'
+    })
+    .done(function(data) {
+      me.set("tags", data);
+    });
+  },
+  fetchAuthors: function() {
+    var me = this;
+    $.ajax({
+      url: 'http://startupgrid-api-production.herokuapp.com/authors.json',
+      type: 'GET',
+      dataType: 'json'
+    })
+    .done(function(data) {
+      me.set("authors", data);
+    });
+  },
+  fetchPosts: function() {
+    var me = this;
+    $.ajax({
+      url: 'http://startupgrid-api-production.herokuapp.com/posts.json',
+      type: 'GET',
+      dataType: 'json'
+    })
+    .done(function(data) {
+      me.set("posts", data);
+    });
   }
 });
 var LandingView = Backbone.View.extend({
@@ -28,10 +61,12 @@ var LandingView = Backbone.View.extend({
   },
   events: {
     "click .subtopic-card": "goToTopic",
-    "keypress .search-input": "search"
+    "keypress .search-input": "searchPosts",
   },
-  search: function() {
-
+  searchPosts: function(e) {
+    if (e.keyCode == 13) {
+      var searchText = document.getElementById('landing-search').value;
+    }
   },
   goToTopic: function(e) {
     var id = $(e.currentTarget).data("id");

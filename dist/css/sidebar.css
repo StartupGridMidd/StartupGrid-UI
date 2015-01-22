@@ -1,40 +1,54 @@
+/* line 3, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
 .sidebar {
   font-weight: 300;
   font-size: 17px; }
+  /* line 6, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
   .sidebar .sidebar-item {
     margin: 2px 0 2px 0;
     color: #49BDA3;
     border-radius: 2px;
     padding: 5px;
     cursor: pointer; }
+    /* line 12, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
     .sidebar .sidebar-item:hover {
       background-color: #aad9cb; }
+      /* line 14, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
       .sidebar .sidebar-item:hover i:hover {
         color: #F4F0E9; }
+    /* line 18, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
     .sidebar .sidebar-item:active {
       background-color: #49BDA3;
       color: #F4F0E9; }
+    /* line 23, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
     .sidebar .sidebar-item i {
       display: none;
       float: right;
       padding: 3px;
       cursor: pointer; }
+      /* line 28, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
       .sidebar .sidebar-item i:hover {
         color: #aad9cb; }
+    /* line 32, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
     .sidebar .sidebar-item span.number {
       float: right;
       padding-right: 3px;
       display: inline-block; }
+    /* line 38, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
     .sidebar .sidebar-item.selected {
       background-color: #49BDA3;
       color: #F4F0E9; }
+      /* line 39, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
       .sidebar .sidebar-item.selected span.number {
         display: none; }
+      /* line 42, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
       .sidebar .sidebar-item.selected i {
         display: block; }
+    /* line 48, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
     .sidebar .sidebar-item.topic {
       margin: 6px 0 6px 0; }
+    /* line 51, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
     .sidebar .sidebar-item.subtopic {
       margin: 6px 0 6px 10px; }
+    /* line 54, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/sidebar.scss */
     .sidebar .sidebar-item.tag {
       margin: 6px 0 6px 20px; }
