@@ -12586,7 +12586,7 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-/* line 4, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+/* line 4, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
 div.result-card {
   cursor: pointer;
   font-weight: 300;
@@ -12601,70 +12601,70 @@ div.result-card {
   position: relative;
   margin: 10px 0;
   padding-left: 0; }
-  /* line 13, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+  /* line 13, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
   div.result-card.expanded {
     height: auto; }
-  /* line 22, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+  /* line 22, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
   div.result-card .image-container {
     float: left;
     width: 110px;
     height: 110px; }
-    /* line 26, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+    /* line 26, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
     div.result-card .image-container .card-image {
       width: 110px;
       height: 110px;
       overflow: hidden;
       margin-right: 10px; }
-      /* line 31, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+      /* line 31, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
       div.result-card .image-container .card-image img {
         width: 110px; }
-  /* line 36, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+  /* line 36, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
   div.result-card .text-container {
     float: left;
     width: calc(100% - 200px);
     margin-left: 10px; }
-    /* line 40, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+    /* line 40, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
     div.result-card .text-container .card-row {
       padding-top: 10px;
       display: block;
       clear: both; }
-      /* line 44, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+      /* line 44, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
       div.result-card .text-container .card-row::after {
         content: '';
         clear: both;
         display: block; }
-      /* line 49, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+      /* line 49, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
       div.result-card .text-container .card-row > * {
         min-height: 30px; }
-      /* line 52, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+      /* line 52, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
       div.result-card .text-container .card-row .author-name {
         font-family: "Helvetica Neue", sans-serif;
         font-size: 22px;
         line-height: 25px; }
-      /* line 57, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+      /* line 57, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
       div.result-card .text-container .card-row .article-title {
         font-family: "Helvetica Neue", sans-serif;
         font-size: 18px;
         line-height: 25px;
         vertical-align: middle; }
-      /* line 63, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+      /* line 63, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
       div.result-card .text-container .card-row .company-name {
         color: #9f9f9e; }
-      /* line 66, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+      /* line 66, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
       div.result-card .text-container .card-row .quote {
         height: 40px;
         color: #9f9f9e;
         font-size: 13px;
         overflow: hidden;
         transition: height .1s ease-in; }
-  /* line 78, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+  /* line 78, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
   div.result-card.expanded .text-container .card-row .quote {
     height: auto; }
-  /* line 84, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+  /* line 84, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
   div.result-card .reviewers {
     float: right;
     margin-top: 15px; }
-    /* line 87, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+    /* line 87, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
     div.result-card .reviewers li {
       font-style: 300;
       display: inline-block;
@@ -12674,11 +12674,11 @@ div.result-card {
       border: 1pt solid #49BDA3;
       border-radius: 3px;
       font-size: 10px; }
-  /* line 99, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+  /* line 99, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
   div.result-card .expanded-section .tags {
     padding: 10px 0;
     text-align: right; }
-    /* line 102, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_card.scss */
+    /* line 102, /Users/Ben/Projects/StartUp Grid/StartupGrid-UI/scss/result_Card.scss */
     div.result-card .expanded-section .tags .tag {
       display: inline-block;
       padding: 4px;
