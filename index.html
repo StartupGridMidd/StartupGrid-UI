@@ -10,6 +10,11 @@
   <div id="container"></div>
 
   <script src="dist/js/main.js"></script>
+  <script id="template-results" type="text/x-mustache">
+    {{#results}}
+      <li>{{title}}</li>
+    {{/results}}
+  </script>
   <script id="template-navbar" type="text/x-mustache">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -28,6 +33,9 @@
         <form class="main-search navbar-form navbar-left" role="search">
           <div class="form-group">
             <input type="text" id="nav-search" class="form-control" placeholder="Search">
+            <div class="results">
+
+            </div>
           </div><button id="nav-search-btn" class="btn btn-default">
           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </button>

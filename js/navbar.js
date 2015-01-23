@@ -4,39 +4,61 @@ var _ = require("underscore");
 var hogan = require("hogan.js");
 Backbone.$ = $;
 
-var NavBarModel = Backbone.Model.extend({
+var NavbarModel = Backbone.Model.extend({
   initialize: function() {
-    this.fetch();
+
   },
-  fetch: function() {
-    }
+  search: function(query) {
+    var me = this;
+    console.log("Fetching", query);
+    $.ajax({
+      url: 'http://startupgrid-api-production.herokuapp.com/search.json?q=' + query,
+      type: 'GET',
+      dataType: 'json'
+    }).done(function(results) {
+      me.set({ 
+        "results": results,
+        "showing": (results.length > 0 ? true : false)
+      });
+    });
+  }
 });
 
 var Navbar = Backbone.View.extend({
   initialize: function() {
     this.render();
+    this.model.on("change", this.renderResults, this);
   },
   events: {
-    "keypress .form-control": "searchPosts",
+    "keyup .form-control": "searchPosts",
     "click .btn": "clickSearchPosts"
   },
   searchPosts: function(e) {
-    if (e.keyCode == 13) {
-      var searchText = document.getElementById('nav-search').value;
+    var searchText = $(e.currentTarget).val();
+    this.model.search(searchText);
+    if (e.keyCode === 13) {
+      e.preventDefault();
     }
   },
-  clickSearchPosts: function(e) {
-    var button = $(e.currentTarget).id;
-    if ($(button).click()) {
-      var searchText = document.getElementById('nav-search').value;
-    }
+  clickSearchPosts: function() {
+    var searchText = $('nav-search').val();
+    this.model.search(searchText);
   },
   template: function() {
     return hogan.compile($("#template-navbar").html()).render({});
   },
+  resultsTemplate: function() {
+    return hogan.compile($("#template-results").html()).render(this.model.attributes);
+  },
   render: function() {
     this.$el.html(this.template());
+  },
+  renderResults: function() {
+    this.$el.find(".results").html(this.resultsTemplate());
   }
 });
 
-module.exports = Navbar;
+module.exports = {
+  Navbar:Navbar,
+  NavbarModel:NavbarModel
+};

@@ -3,7 +3,7 @@ var Backbone = require("backbone");
 var hogan = require("hogan.js");
 Backbone.$ = $;
 
-var Navbar = require("./navbar");
+var navbar = require("./navbar");
 var sidebar = require("./sidebar");
 var main_grid = require("./main_grid");
 
@@ -20,9 +20,11 @@ var GridView = Backbone.View.extend({
     var self = this;
     this.$el.html(this.template());
     this.$el.removeClass('landing');
-    this.navbar = new Navbar({
-      el: "#navbar"
-    });
+    this.navbar = new navbar.Navbar({
+      el: "#navbar",
+      model: new navbar.NavbarModel({
+        tagId: this.tagId
+      })    });
     this.sidebar = new sidebar.Sidebar({
       el: "#sidebar",
       tagId: this.tagId,

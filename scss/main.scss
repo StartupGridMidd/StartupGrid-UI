@@ -35,12 +35,15 @@ html, body {
         display: inline-block;
       }
       .form-group {
+        position:relative;
         input {
           height: 40px;
           width: 300px;
           border:0;
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
           color: $green;
           font-style: italic;
           font-size: 20px;
@@ -53,15 +56,33 @@ html, body {
             outline:none;
           }
         }
+        .results {
+          position:absolute;
+          z-index: 2000;
+          border:1pt solid $lightGray;
+          @extend .shadow-z-1;
+          li {
+            list-style: none;
+            padding: 10px;
+            background: $white;
+            width: 398px;
+            cursor: pointer;
+            &:hover {
+              background: $lightGreen;
+            }
+          }
+        }
       }
       button.btn {
         border:0;
         background-color: $lightGreen;
-        border-top-left-radius: 0;
         padding-right: 20px;
         padding-left: 20px;
         font-size: 20px;
         border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 2px;
         span.glyphicon { 
           color: $green;
         }
@@ -95,7 +116,7 @@ html, body {
         height: 330px;
         margin: 15px;
         border-radius: 2px;
-        box-shadow: 0px 2px 3px rgba(0,0,0,0.2);
+        @extend .shadow-z-1;
         background:white;
         float: left;
         img {
