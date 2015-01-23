@@ -28,10 +28,12 @@ var LandingView = Backbone.View.extend({
   },
   events: {
     "click .subtopic-card": "goToTopic",
-    "keypress .search-input": "search"
+    "keypress .search-input": "searchPosts",
   },
-  search: function() {
-
+  searchPosts: function(e) {
+    if (e.keyCode == 13) {
+      var searchText = document.getElementById('landing-search').value;
+    }
   },
   goToTopic: function(e) {
     var id = $(e.currentTarget).data("id");
