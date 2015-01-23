@@ -6,41 +6,10 @@ Backbone.$ = $;
 
 var NavBarModel = Backbone.Model.extend({
   initialize: function() {
-    this.fetchTags();
+    this.fetch();
   },
-  fetchTags: function() {
-    var me = this;
-    $.ajax({
-      url: 'http://startupgrid-api-production.herokuapp.com/tags.json',
-      type: 'GET',
-      dataType: 'json'
-    })
-    .done(function(data) {
-      me.set("tags", data);
-    });
-  },
-  fetchAuthors: function() {
-    var me = this;
-    $.ajax({
-      url: 'http://startupgrid-api-production.herokuapp.com/authors.json',
-      type: 'GET',
-      dataType: 'json'
-    })
-    .done(function(data) {
-      me.set("authors", data);
-    });
-  },
-  fetchPosts: function() {
-    var me = this;
-    $.ajax({
-      url: 'http://startupgrid-api-production.herokuapp.com/posts.json',
-      type: 'GET',
-      dataType: 'json'
-    })
-    .done(function(data) {
-      me.set("posts", data);
-    });
-  }
+  fetch: function() {
+    }
 });
 
 var Navbar = Backbone.View.extend({

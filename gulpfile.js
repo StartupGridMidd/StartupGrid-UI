@@ -30,10 +30,7 @@ gulp.task('templates', function() {
 
 gulp.task('sass', function() {
   gulp.src('./scss/*.scss')
-    .pipe(sass( {
-      errLogToConsole: true,
-      sourceComments: 'normal'
-    }))
+    .pipe(sass())
     .pipe(gulp.dest('./dist/css'));
 });
 
