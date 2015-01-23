@@ -10,7 +10,7 @@ var MainGridModel = Backbone.Model.extend({
     router: null
   },
   initialize: function(params) {
-    var tagId = (params.tagId === null) ? 0 : parseInt(params.tagId, 10);
+    var tagId = (params.tagId === null) ? null : parseInt(params.tagId, 10);
     this.set("tagId", tagId);
     this.fetch();
   },
