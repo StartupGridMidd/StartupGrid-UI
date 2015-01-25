@@ -16,8 +16,10 @@ var LandingModel = Backbone.Model.extend({
     })
     .done(function(data) {
       me.set("topics", data);
-    });
-    
+    });    
+  },
+  search: function(query) {
+    console.log("Fetching", query);
   }
 });
 var LandingView = Backbone.View.extend({
@@ -28,12 +30,11 @@ var LandingView = Backbone.View.extend({
   },
   events: {
     "click .subtopic-card": "goToTopic",
-    "keypress .search-input": "searchPosts",
+    "keyup .search-input": "searchPosts",
   },
   searchPosts: function(e) {
-    if (e.keyCode == 13) {
-      var searchText = document.getElementById('landing-search').value;
-    }
+    var searchText = $(e.currentTarget).val();
+    this.model.search(searchText);
   },
   goToTopic: function(e) {
     var id = $(e.currentTarget).data("id");
