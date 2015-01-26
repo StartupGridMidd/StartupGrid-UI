@@ -2942,8 +2942,7 @@ legend {
       background-color: rgba(0, 0, 0, 0.05); }
     .navbar .navbar-nav .open .dropdown-menu > .disabled > a, .navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {
       color: #E5E5E5;
-      background-color: transparent; }
- }
+      background-color: transparent; } }
   .navbar .navbar-link {
     color: rgba(255, 255, 255, 0.84); }
     .navbar .navbar-link:hover {
