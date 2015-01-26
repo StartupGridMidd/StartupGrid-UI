@@ -4899,19 +4899,16 @@ button.close {
     color: #9f9f9e;
     background: #F4F0E9;
     border-radius: 1px;
-    font-size: 23px;
-    margin: 15px; }
+    font-size: 23px; }
     #container.landing .subtopic-card img {
       opacity: 0.4;
-      margin: 12px 0; }
+      margin-top: 12px;
+      margin-bottom: 12px; }
   #container.landing li {
     display: inline-block;
     padding: 25px;
     font-size: 22px;
     font-weight: 300; }
-
-.row {
-  margin: 25px; }
 
 input {
   border: 5px #F4F0E9;

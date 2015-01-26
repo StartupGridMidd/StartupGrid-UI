@@ -13,11 +13,11 @@
     background: $cream;
     border-radius: 1px;
     font-size: 23px;
-    margin: 15px;
     @extend .shadow-z-1;
     img {
       opacity: 0.4;
-      margin: 12px 0;
+      margin-top: 12px;
+      margin-bottom: 12px;
     }
     &:hover {
       @extend .shadow-z-3;
@@ -29,11 +29,6 @@
     font-size: 22px;
     font-weight: 300;
   }
-}
-
-
-.row {
-  margin: 25px
 }
 
 .logo {
