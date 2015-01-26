@@ -4904,32 +4904,38 @@ button.close {
       opacity: 0.4;
       margin-top: 12px;
       margin-bottom: 12px; }
-  #container.landing li {
+  #container.landing .left-inner-addon {
+    border-radius: 1px;
+    position: relative; }
+    #container.landing .left-inner-addon i {
+      font-size: 28px;
+      color: #49BDA3;
+      position: absolute;
+      padding: 10px 12px;
+      pointer-events: none; }
+    #container.landing .left-inner-addon input.form-control {
+      font-weight: 300;
+      padding-left: 50px;
+      border: 0;
+      border-radius: 1px; }
+    #container.landing .left-inner-addon .results {
+      position: absolute;
+      z-index: 2000;
+      border: 1pt solid #9f9f9e; }
+      #container.landing .left-inner-addon .results li {
+        list-style: none;
+        padding: 10px;
+        background: #FFFFFF;
+        color: #000000;
+        width: 398px;
+        cursor: pointer; }
+        #container.landing .left-inner-addon .results li:hover {
+          background: #aad9cb; }
+  #container.landing .footer li {
     display: inline-block;
     padding: 25px;
     font-size: 22px;
     font-weight: 300; }
+  #container.landing .footer a {
+    color: #F4F0E9; }
 
-input {
-  border: 5px #F4F0E9;
-  background: #F4F0E9;
-  color: #F4F0E9;
-  border-radius: 4px;
-  width: 500px; }
-
-a {
-  color: #F4F0E9; }
-
-.left-inner-addon {
-  border-radius: 1px; }
-  .left-inner-addon i {
-    font-size: 28px;
-    color: #49BDA3;
-    position: absolute;
-    padding: 10px 12px;
-    pointer-events: none; }
-  .left-inner-addon input.form-control {
-    font-weight: 300;
-    padding-left: 50px;
-    border: 0;
-    border-radius: 1px; }
