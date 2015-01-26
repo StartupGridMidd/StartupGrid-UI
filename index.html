@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>StartupGrid</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="dist/css/main.css">
 </head>
 <body>
@@ -92,7 +92,7 @@
   </script>
   <script type="text/x-mustache" id="template-landing">
   <div class="container">
-    <div class ="row">
+    <div class ="logo-container row">
       <div class="col-md-8 col-md-offset-2">
         <img src="img/logo_large.png" alt="" class="logo img-responsive">
       </div>
@@ -111,22 +111,22 @@
         </div>
       </div>
     </div>    
-    <div class="row">
+    <div class="subtopics-row row">
     {{#topics}}
-        <div class="subtopic-card col-md-3" data-id="{{id}}">
+      <div class="subtopic-container col-md-3 col-sm-4 col-xs-6 text-center">
+        <div class="subtopic-card" data-id="{{id}}">
         <div><img src="img/ui-elements/{{name}}.png" alt="" width="50"/></div>
         {{name}}
         </div>
+      </div>
     {{/topics}}
     </div>
-    <div class="row text-center">
-      <div class="footer">
+      <div class="row footer">
         <li><a href="#"> who we are </a></li>
         <li><a href="#"> thought leaders </a></li>
         <li><a href="#"> contact </a></li>
         <li><a href="#"> blog </a></li>
       </div>
-    </div>
   </div>
   </script>
   <script id="template-gridview" type="text/x-mustache">

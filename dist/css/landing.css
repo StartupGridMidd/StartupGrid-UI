@@ -4892,18 +4892,31 @@ button.close {
 #container.landing {
   background: #49BDA3;
   color: #F4F0E9; }
-  #container.landing .subtopic-card {
-    transition: box-shadow 0.1s ease-in;
-    cursor: pointer;
-    height: 170px;
-    color: #9f9f9e;
-    background: #F4F0E9;
-    border-radius: 1px;
-    font-size: 23px; }
-    #container.landing .subtopic-card img {
-      opacity: 0.4;
-      margin-top: 12px;
-      margin-bottom: 12px; }
+  #container.landing .logo-container {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  #container.landing .subtopics-row {
+    margin-top: 10px; }
+  #container.landing .subtopic-container {
+    text-align: center; }
+    #container.landing .subtopic-container .subtopic-card {
+      transition: box-shadow 0.1s ease-in;
+      cursor: pointer;
+      height: 170px;
+      width: 200px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: #9f9f9e;
+      background: #F4F0E9;
+      border-radius: 1px;
+      font-size: 23px;
+      display: inline-block;
+      font-weight: 300;
+      padding: 15px; }
+      #container.landing .subtopic-container .subtopic-card img {
+        opacity: 0.4;
+        margin-top: 12px;
+        margin-bottom: 12px; }
   #container.landing .left-inner-addon {
     border-radius: 1px;
     position: relative; }
@@ -4931,11 +4944,13 @@ button.close {
         cursor: pointer; }
         #container.landing .left-inner-addon .results li:hover {
           background: #aad9cb; }
-  #container.landing .footer li {
-    display: inline-block;
-    padding: 25px;
-    font-size: 22px;
-    font-weight: 300; }
-  #container.landing .footer a {
-    color: #F4F0E9; }
-
+  #container.landing .footer {
+    text-align: center;
+    clear: both; }
+    #container.landing .footer li {
+      display: inline-block;
+      padding: 25px;
+      font-size: 20pt;
+      font-weight: 300; }
+    #container.landing .footer a {
+      color: #F4F0E9; }

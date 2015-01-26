@@ -5,27 +5,43 @@
 #container.landing {
   background: $green;
   color: $cream;
-  .subtopic-card {
-    transition: box-shadow .1s ease-in;
-    cursor: pointer;
-    height: 170px;
-    color: $lightGray;
-    background: $cream;
-    border-radius: 1px;
-    font-size: 23px;
-    @extend .shadow-z-1;
-    img {
-      opacity: 0.4;
-      margin-top: 12px;
-      margin-bottom: 12px;
-    }
-    &:hover {
-      @extend .shadow-z-3;
+  .logo-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .subtopics-row {
+    margin-top: 10px;
+  }
+  .subtopic-container {
+    text-align: center;
+    .subtopic-card {
+      transition: box-shadow .1s ease-in;
+      cursor: pointer;
+      height: 170px;
+      width: 200px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: $lightGray;
+      background: $cream;
+      border-radius: 1px;
+      font-size: 23px;
+      display: inline-block;
+      font-weight: 300;
+      padding: 15px;
+      @extend .shadow-z-1;
+      img {
+        opacity: 0.4;
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+      &:hover {
+        @extend .shadow-z-3;
+      }
     }
   }
   .left-inner-addon {
-  border-radius: 1px;
-  position: relative;
+    border-radius: 1px;
+    position: relative;
     i {
       font-size: 28px;
       color: $green;
@@ -59,10 +75,12 @@
     }
   }
   .footer {
+    text-align: center;
+    clear: both;
     li {
       display: inline-block;
       padding: 25px;
-      font-size: 22px;
+      font-size: 20pt;
       font-weight: 300;
     }
     a {
@@ -71,6 +89,3 @@
   }
 }
 
-.logo {
-
-}
