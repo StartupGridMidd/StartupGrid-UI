@@ -1,6 +1,7 @@
 var $ = require("jquery");
 var Backbone = require("backbone");
 var hogan = require("hogan.js");
+var common = require("./common");
 Backbone.$ = $;
 
 var LandingModel = Backbone.Model.extend({
@@ -10,7 +11,7 @@ var LandingModel = Backbone.Model.extend({
   fetch: function() {
     var me = this;
     $.ajax({
-      url: 'http://startupgrid-api-production.herokuapp.com/topics.json?tree=false',
+      url: common.API_URL + '/topics.json?tree=false',
       type: 'GET',
       dataType: 'json'
     })
@@ -23,7 +24,7 @@ var LandingModel = Backbone.Model.extend({
     var me = this;
     console.log("Fetching", query);
     $.ajax({
-      url: 'http://startupgrid-api-production.herokuapp.com/search.json?q=' + query,
+      url: common.API_URL + '/search.json?q=' + query,
       type: 'GET',
       dataType: 'json'
     }).done(function(results) {

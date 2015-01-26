@@ -2,7 +2,7 @@ var $ = require("jquery");
 var Backbone = require("backbone");
 var _ = require("underscore");
 var hogan = require("hogan.js");
-
+var common = require("./common");
 Backbone.$ = $;
 
 var SidebarModel = Backbone.Model.extend({
@@ -15,7 +15,7 @@ var SidebarModel = Backbone.Model.extend({
   fetch: function() {
     var me = this;
     $.ajax({
-        url: 'http://startupgrid-api-production.herokuapp.com/topics.json',
+        url: common.API_URL + '/topics.json',
         type: 'GET',
         dataType: 'json'
       })

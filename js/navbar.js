@@ -2,6 +2,7 @@ var $ = require("jquery");
 var Backbone = require("backbone");
 var _ = require("underscore");
 var hogan = require("hogan.js");
+var common = require("./common");
 Backbone.$ = $;
 
 var NavbarModel = Backbone.Model.extend({
@@ -12,7 +13,7 @@ var NavbarModel = Backbone.Model.extend({
     var me = this;
     console.log("Fetching", query);
     $.ajax({
-      url: 'http://startupgrid-api-production.herokuapp.com/search.json?q=' + query,
+      url: common.API_URL + '/search.json?q=' + query,
       type: 'GET',
       dataType: 'json'
     }).done(function(results) {

@@ -2,6 +2,7 @@ var $ = require("jquery");
 var Backbone = require("backbone");
 var _ = require("underscore");
 var hogan = require("hogan.js");
+var common = require("./common");
 Backbone.$ = $;
 
 var MainGridModel = Backbone.Model.extend({
@@ -26,7 +27,7 @@ var MainGridModel = Backbone.Model.extend({
     } else {
       tagPortion = '';
     }
-    var fetchUrl = 'http://startupgrid-api-production.herokuapp.com' + tagPortion + '/posts.json';
+    var fetchUrl = common.API_URL + tagPortion + '/posts.json';
     $.ajax({
         url: fetchUrl,
         type: 'GET',
