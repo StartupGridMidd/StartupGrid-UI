@@ -59,14 +59,14 @@
     .results {
       position:absolute;
       z-index: 2000;
-      border:1pt solid $lightGray;
+      background:white;
+      padding:0;
       @extend .shadow-z-1;
       li {
         list-style: none;
         padding: 10px;
         background: $white;
         color: $black;
-        width: 398px;
         cursor: pointer;
         &:hover {
           background: $lightGreen;

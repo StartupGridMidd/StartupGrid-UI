@@ -12,7 +12,7 @@
   <script src="dist/js/main.js"></script>
   <script id="template-results" type="text/x-mustache">
     {{#results}}
-      <li>{{title}}</li>
+      <li><span class='title'>{{title}}</span> - <span class='author'>{{author.name}}</span></li>
     {{/results}}
   </script>
   <script id="template-navbar" type="text/x-mustache">
@@ -103,7 +103,7 @@
           <div class="left-inner-addon">
             <i id="landing-search-img" class="glyphicon glyphicon-search"></i>
             <input type="text" id="landing-search" class="search-input form-control input-lg" name="search" placeholder="Search the grid..."/> 
-            <div class="results">
+            <div class="results col-md-12">
 
             </div>
 
@@ -113,7 +113,7 @@
     </div>    
     <div class="subtopics-row row">
     {{#topics}}
-      <div class="subtopic-container col-md-3 col-sm-4 col-xs-6 text-center">
+      <div class="subtopic-container col-md-3 col-sm-4 col-xs-12 text-center">
         <div class="subtopic-card" data-id="{{id}}">
         <div><img src="img/ui-elements/{{name}}.png" alt="" width="50"/></div>
         {{name}}

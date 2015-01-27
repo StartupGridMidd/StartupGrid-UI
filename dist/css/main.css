@@ -14859,13 +14859,13 @@ button.close {
     #container.landing .left-inner-addon .results {
       position: absolute;
       z-index: 2000;
-      border: 1pt solid #9f9f9e; }
+      background: white;
+      padding: 0; }
       #container.landing .left-inner-addon .results li {
         list-style: none;
         padding: 10px;
         background: #FFFFFF;
         color: #000000;
-        width: 398px;
         cursor: pointer; }
         #container.landing .left-inner-addon .results li:hover {
           background: #aad9cb; }
