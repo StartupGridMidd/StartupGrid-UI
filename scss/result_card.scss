@@ -13,14 +13,21 @@ div.result-card {
   &.expanded {
     //height: 200px;
     height: auto;
-
+    .article-link {
+      .glyphicon-play {
+      display: block;
+      font-size: 20px;
+      padding-bottom: 10px;
+      position: relative;
+      left: 79px;
+      float:right; 
+    }
   }
-
+}
 
   background: $white;
   border-radius: 1px;
-  overflow: hidden;
-  
+  overflow: hidden; 
   position:relative;
   margin: 10px 0;
   padding-left: 0;
@@ -80,8 +87,6 @@ div.result-card {
     margin-top:15px;
     color: $green;
 
-
-
     li {
       font-style: 300;
       display: inline-block;
@@ -97,34 +102,15 @@ div.result-card {
 
 .reviewer-link {
   color: $green;
-
-  a:link {
-    text-decoration: none;
-  }
-  a:visited {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: none;
-  }
-  a:active {
-    text-decoration: none;
-  }
 }
 
 .inner-div {
+  .glyphicon-play {
+    display:none;
+  }
   min-height: 110px;
 }
 
-.article-link {
-  .glyphicon-play {
-    font-size: 20px;
-    padding-bottom: 1em;
-    position: relative;
-    left: 79px;
-    float:right;
 
-  }
-}
 
 

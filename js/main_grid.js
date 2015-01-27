@@ -20,7 +20,7 @@ var MainGridModel = Backbone.Model.extend({
   fetch: function() {
     var me = this;
     $.ajax({
-        url: 'http://startupgrid-api-staging.herokuapp.com/tags/' + me.get("tagId") + '/posts.json',
+        url: 'http://startupgrid-api-production.herokuapp.com/tags/' + me.get("tagId") + '/posts.json',
         type: 'GET',
         dataType: 'json'
       })
@@ -51,6 +51,7 @@ var MainGrid = Backbone.View.extend({
 
   expand: function(e) {
     $(e.currentTarget).toggleClass('expanded');
+    $(e.currentTarget).toggleClass('article-link');
   },
   goToPost: function(e) {
     var url = $(e.currentTarget).data("url");
