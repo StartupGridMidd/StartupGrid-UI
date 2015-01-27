@@ -58,16 +58,31 @@ html, body {
         .results {
           position:absolute;
           z-index: 2000;
-          border:1pt solid $lightGray;
           @extend .shadow-z-1;
           li {
             list-style: none;
             padding: 10px;
+            padding-left: 50px;
             background: $white;
-            width: 398px;
+            width: 600px;
             cursor: pointer;
+            font-weight: 300;
+            overflow: hidden;
+            height: 40px;
+            img {
+              float: left;
+              width: 40px;
+              margin-top:-10px;
+              margin-left:-50px;
+            }
             &:hover {
               background: $lightGreen;
+            }
+            .title {
+
+            }
+            .author {
+              color: $lightGray;
             }
           }
         }

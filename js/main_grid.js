@@ -12,31 +12,51 @@ var MainGridModel = Backbone.Model.extend({
   },
   initialize: function(params) {
     var tagId = (params.tagId === null) ? null : parseInt(params.tagId, 10);
-    this.set("tagId", tagId);
-    this.fetch();
+    this.set({
+      "tagId": tagId,
+      "searchQuery": params.searchQuery
+    });
+    if (this.get("searchQuery")) {
+      this.search();
+    } else {
+      this.fetch();
+    }
   },
-  setId: function(id) {
-    this.set("tagId", id);
-    this.fetch();
+  setId: function(id, options) {
+    if (options.clicked === true) {
+      this.set("tagId", id);
+      this.fetch();
+    }
   },
   fetch: function() {
     var me = this;
     var tagPortion;
-    if(this.get("tagId") !== null) {
+    if (this.get("tagId") !== null) {
       tagPortion = '/tags/' + me.get("tagId");
     } else {
       tagPortion = '';
     }
     var fetchUrl = common.API_URL + tagPortion + '/posts.json';
     $.ajax({
-        url: fetchUrl,
-        type: 'GET',
-        dataType: 'json'
-      })
-      .done(function(posts) {
-        me.set("posts", posts);
-      });
-
+      url: fetchUrl,
+      type: 'GET',
+      dataType: 'json'
+    }).done(function(posts) {
+      console.log("got tag posts", posts);
+      me.set("posts", posts);
+    });
+  },
+  search: function() {
+    var me = this;
+    var searchUrl = common.API_URL + '/search.json?q=' + me.get("searchQuery");
+    $.ajax({
+      url: searchUrl,
+      type: 'GET',
+      dataType: 'json'
+    }).done(function(posts) {
+      console.log("got search posts", posts);
+      me.set("posts", posts);
+    });
   }
 });
 
@@ -65,7 +85,9 @@ var MainGrid = Backbone.View.extend({
   },
   select: function(e) {
     var id = $(e.currentTarget).data("id");
-    this.router.navigate("tag/"+id, {trigger: true});
+    this.router.navigate("tag/" + id, {
+      trigger: true
+    });
     e.stopPropagation();
   },
 });

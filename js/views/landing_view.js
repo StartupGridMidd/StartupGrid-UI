@@ -1,41 +1,10 @@
 var $ = require("jquery");
 var Backbone = require("backbone");
 var hogan = require("hogan.js");
-var common = require("./common");
+var common = require("../common");
+var LandingModel = require("../models/landing_model");
 Backbone.$ = $;
 
-var LandingModel = Backbone.Model.extend({
-  initialize: function() {
-    this.fetch();
-  },
-  fetch: function() {
-    var me = this;
-    $.ajax({
-      url: common.API_URL + '/topics.json?tree=false',
-      type: 'GET',
-      dataType: 'json'
-    })
-    .done(function(data) {
-      me.set("topics", data);
-      me.trigger("topics_change");
-    });    
-  },
-  search: function(query) {
-    var me = this;
-    console.log("Fetching", query);
-    $.ajax({
-      url: common.API_URL + '/search.json?q=' + query,
-      type: 'GET',
-      dataType: 'json'
-    }).done(function(results) {
-      me.set({ 
-        "results": results,
-        "showing": (results.length > 0 ? true : false)
-      });
-      me.trigger("search_received");
-    });
-  }
-});
 var LandingView = Backbone.View.extend({
   initialize: function(params) {
     this.router = params.router;
@@ -49,15 +18,16 @@ var LandingView = Backbone.View.extend({
     "click .btn": "clickSearchPosts",
   },
   searchPosts: function(e) {
-    var searchText = $(e.currentTarget).val();
-    this.model.search(searchText);
+    var query = $('.search-input').val();
     if (e.keyCode === 13) {
+      this.router.navigate("search/" + encodeURIComponent(query), {trigger: true});
       e.preventDefault();
     }
   },
-  clickSearchPosts: function() {
-    var searchText = $('search-input').val();
-    this.model.search(searchText);
+  clickSearchPosts: function(e) {
+    var query = $('.search-input').val();
+    this.router.navigate("search/" + encodeURIComponent(query), {trigger: true});
+    e.preventDefault();
   },
   goToTopic: function(e) {
     var id = $(e.currentTarget).data("id");

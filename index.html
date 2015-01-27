@@ -12,7 +12,7 @@
   <script src="dist/js/main.js"></script>
   <script id="template-results" type="text/x-mustache">
     {{#results}}
-      <li><span class='title'>{{title}}</span> - <span class='author'>{{author.name}}</span></li>
+      <li>{{#author.image_url}}<img src="{{author.image_url}}" alt="{{author.name}}">{{/author.image_url}}<span class='title'>{{title}}</span> - <span class='author'>{{author.name}}</span></li>
     {{/results}}
   </script>
   <script id="template-navbar" type="text/x-mustache">
@@ -30,7 +30,7 @@
       </div>
 
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <form class="main-search navbar-form navbar-left" role="search">
+        <div class="main-search navbar-form navbar-left" role="search">
           <div class="form-group">
             <input type="text" id="nav-search" class="form-control" placeholder="Search">
             <div class="results">
@@ -39,7 +39,7 @@
           </div><button id="nav-search-btn" class="btn btn-default">
           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </button>
-        </form>
+        </div>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">who we are</a></li>
           <li><a href="#">thought leaders</a></li>
@@ -106,7 +106,6 @@
             <div class="results col-md-12">
 
             </div>
-
           </div>
         </div>
       </div>
@@ -132,11 +131,11 @@
   <script id="template-gridview" type="text/x-mustache">
     <nav id="navbar" class="navbar navbar-default"></nav>
     <div id="main" class="">
-      <div class="sort-bar col-md-12">
+      <!-- <div class="sort-bar col-md-12">
         <a href="" class="selected">relevance</a>
         <a href="">popularity</a>
         <a href="">recent</a>
-      </div>
+      </div> -->
       <div id="sidebar" class="sidebar col-md-2"></div>
       <div id="sg-grid" class="sg-grid col-md-10">
 
