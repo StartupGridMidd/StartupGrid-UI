@@ -135,29 +135,36 @@
   <script id="template-maingrid" type="text/x-mustache">
     {{#posts}}
       <div class="result-card col-md-11" data-url="{{url}}">
-         <ul class="reviewers">
-           <li>SG</li>
-         </ul>
-        <div class="image-container">
-          <div class="card-image">
-            <img src="{{author.image_url}}" alt="">
+        <div class="inner-div">
+           <ul class="reviewers">
+             <li><a class="reviewer-link" href="#">SG</a></li>
+           </ul>
+
+          <div class="image-container">
+            <div class="card-image">
+              <img src="{{author.image_url}}" alt="">
+            </div>
           </div>
-        </div>
-        <div class="text-container">
-          <div class="card-row">
-            <div class="col-md-3 author-name">{{author.name}}</div>
-            <div class="col-md-9 article-title">{{title}}</div>
-          </div>
+          <div class="text-container">
+            <div class="card-row">
+              <div class="col-md-3 author-name">{{author.name}}</div>
+              <div class="col-md-9 article-title">{{title}}</div>
+            </div>
       
-          <div class="card-row">
-            <div class="col-md-3 company-name">{{author.title}}</div>
-            <div class="col-md-9 quote">{{summary}}</div>
+            <div class="card-row">
+              <div class="col-md-3 company-name">{{author.title}}</div>
+              <div class="col-md-9 quote">{{summary}}</div>
+            </div>
+        
+            <ul class="article-link">
+              <a class="reviewer-link glyphicon glyphicon-play" href="{{url}}"></a>
+            </ul>
           </div>
         </div>
       </div>
     {{/posts}}
   </script>
 
-  </script>
+
 </body>
 </html>
