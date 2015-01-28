@@ -1,8 +1,7 @@
 var $ = require("jquery");
 var Backbone = require("backbone");
 var _ = require("underscore");
-var hogan = require("hogan.js");
-
+var common = require("../common");
 Backbone.$ = $;
 
 var SidebarModel = Backbone.Model.extend({
@@ -15,7 +14,7 @@ var SidebarModel = Backbone.Model.extend({
   fetch: function() {
     var me = this;
     $.ajax({
-        url: 'http://startupgrid-api-production.herokuapp.com/topics.json',
+        url: common.API_URL + '/topics.json',
         type: 'GET',
         dataType: 'json'
       })
@@ -28,9 +27,9 @@ var SidebarModel = Backbone.Model.extend({
     this.set("topics", topics, {
       "silent": true
     });
-    this.select(id);
+    this.select(id, false);
   },
-  select: function(id) {
+  select: function(id, clicked) {
     var existsSelectedTopic = false;
     var topics = _.map(this.get("topics"), function(t) {
       var selectTopic = false;
@@ -82,8 +81,11 @@ var SidebarModel = Backbone.Model.extend({
       silent: true
     });
     this.trigger("change");
+    if(clicked) {
+      Backbone.trigger("sidebar:selected", this.get("tagId"));
+    }
   },
-  deselect: function(id) {
+  deselect: function(id, clicked) {
     var invisibleTopics = false;
     var topics = _.map(_.clone(this.get("topics")), function(t) {
       var invisibleSubtopics = false;
@@ -125,6 +127,9 @@ var SidebarModel = Backbone.Model.extend({
       silent: true
     });
     this.trigger("change");
+    if(clicked) {
+      Backbone.trigger("sidebar:deselected", this.get("tagId"));
+    }
   },
   deepestSelectedTagId: function(topics) {
     var selected = null;
@@ -146,41 +151,5 @@ var SidebarModel = Backbone.Model.extend({
     return (selected === null) ? null : selected.id;
   }
 });
-var Sidebar = Backbone.View.extend({
-  router: null,
-  el: "#sidebar",
-  events: {
-    "click .sidebar-item": "select",
-    "click .sidebar-item i": "cancel"
-  },
-  initialize: function(params) {
-    this.router = params.router;
-    this.model.on("change", this.render, this);
-  },
-  template: function() {
-    return hogan.compile($("#template-sidebar").html()).render(this.model.attributes);
-  },
-  render: function() {
-    this.$el.html(this.template());
-  },
-  select: function(e) {
-    var id = $(e.currentTarget).data("id");
-    this.model.select(id);
-    var route = (this.model.get("tagId") === null) ? "/tags" : "tag/" + this.model.get("tagId");
-    this.router.navigate(route);
-  },
-  showTags: function() {
 
-  },
-  cancel: function(e) {
-    var id = $(e.currentTarget).parent().data("id");
-    this.model.deselect(id);
-    var route = (this.model.get("tagId") === null) ? "/tags" : "tag/" + this.model.get("tagId");
-    this.router.navigate(route);
-    e.stopPropagation();
-  }
-});
-module.exports = {
-  Sidebar: Sidebar,
-  SidebarModel: SidebarModel
-};
+module.exports = SidebarModel

@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>StartupGrid</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="dist/css/main.css">
 </head>
 <body>
   <div id="container"></div>
 
   <script src="dist/js/main.js"></script>
+  <script id="template-results" type="text/x-mustache">
+    {{#results}}
+      <li>{{#author.image_url}}<img src="{{author.image_url}}" alt="{{author.name}}">{{/author.image_url}}<span class='title'>{{title}}</span> - <span class='author'>{{author.name}}</span></li>
+    {{/results}}
+  </script>
   <script id="template-navbar" type="text/x-mustache">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -25,13 +30,16 @@
       </div>
 
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <form class="main-search navbar-form navbar-left" role="search">
+        <div class="main-search navbar-form navbar-left" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div><button class="btn btn-default">
+            <input type="text" id="nav-search" class="form-control" placeholder="Search">
+            <div class="results">
+
+            </div>
+          </div><button id="nav-search-btn" class="btn btn-default">
           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </button>
-        </form>
+        </div>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">who we are</a></li>
           <li><a href="#">thought leaders</a></li>
@@ -84,7 +92,7 @@
   </script>
   <script type="text/x-mustache" id="template-landing">
   <div class="container">
-    <div class ="row">
+    <div class ="logo-container row">
       <div class="col-md-8 col-md-offset-2">
         <img src="img/logo_large.png" alt="" class="logo img-responsive">
       </div>
@@ -93,15 +101,18 @@
       <div class="search">
         <div class="col-md-12 col-md-offset">
           <div class="left-inner-addon">
-            <i class="glyphicon glyphicon-search"></i>
-            <input type="text" class="search-input form-control input-lg" name="search" placeholder="Search the grid..."/> 
+            <i id="landing-search-img" class="glyphicon glyphicon-search"></i>
+            <input type="text" id="landing-search" class="search-input form-control input-lg" name="search" placeholder="Search the grid..."/> 
+            <div class="results col-md-12">
+
+            </div>
           </div>
         </div>
       </div>
     </div>    
-    <div class="row">
+    <div class="subtopics-row row">
     {{#topics}}
-      <div class="col-md-3 col-sm-3 col-xs-6">
+      <div class="subtopic-container col-md-3 col-sm-4 col-xs-12 text-center">
         <div class="subtopic-card" data-id="{{id}}">
         <div><img src="img/ui-elements/{{name}}.png" alt="" width="50"/></div>
         {{name}}
@@ -109,22 +120,22 @@
       </div>
     {{/topics}}
     </div>
-    <div class="row text-center">
-      <li><a href="#"> who we are </a></li>
-      <li><a href="#"> thought leaders </a></li>
-      <li><a href="#"> contact </a></li>
-      <li><a href="#"> blog </a></li>
-    </div>
+      <div class="row footer">
+        <li><a href="#"> who we are </a></li>
+        <li><a href="#"> thought leaders </a></li>
+        <li><a href="#"> contact </a></li>
+        <li><a href="#"> blog </a></li>
+      </div>
   </div>
   </script>
   <script id="template-gridview" type="text/x-mustache">
     <nav id="navbar" class="navbar navbar-default"></nav>
     <div id="main" class="">
-      <div class="sort-bar col-md-12">
+      <!-- <div class="sort-bar col-md-12">
         <a href="" class="selected">relevance</a>
         <a href="">popularity</a>
         <a href="">recent</a>
-      </div>
+      </div> -->
       <div id="sidebar" class="sidebar col-md-2"></div>
       <div id="sg-grid" class="sg-grid col-md-10">
 
