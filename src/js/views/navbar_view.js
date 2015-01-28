@@ -1,6 +1,6 @@
 var $ = require("jquery");
 var Backbone = require("backbone");
-var hogan = require("hogan.js");
+var templates = require("../templates");
 var common = require("../common");
 Backbone.$ = $;
 
@@ -30,10 +30,10 @@ var NavbarView = Backbone.View.extend({
     e.preventDefault();
   },
   template: function() {
-    return hogan.compile($("#template-navbar").html()).render({});
+    return templates.navbar.render({});
   },
   resultsTemplate: function() {
-    return hogan.compile($("#template-results").html()).render(this.model.attributes);
+    return templates.results.render(this.model.attributes);
   },
   render: function() {
     this.$el.html(this.template());

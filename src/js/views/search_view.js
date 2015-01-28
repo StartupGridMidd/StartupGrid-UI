@@ -1,11 +1,10 @@
 var $ = require("jquery");
 var Backbone = require("backbone");
 var _ = require("underscore");
-var hogan = require("hogan.js");
-var common = require("../common");
+var templates = require("../templates");
 Backbone.$ = $;
 
-var PostView = Backbone.View.extend({
+var SearchView = Backbone.View.extend({
   events: {
     "click .result-card": "expand",
     "click .result-card.expanded": "goToPost",
@@ -15,11 +14,12 @@ var PostView = Backbone.View.extend({
     this.model.on("change", this.render, this);
   },
   template: function() {
-    return hogan.compile($("#template-maingrid").html()).render(this.model.attributes);
+    return templates.maingrid.render(this.model.attributes);
   },
   render: function() {
-    console.log("rendering post view");
-    this.$el.html(this.template());
+    if(this.model.get("searchQuery") != null) {
+      this.$el.html(this.template({}));
+    }
   },
   expand: function(e) {
     $(e.currentTarget).addClass('expanded');
@@ -30,9 +30,9 @@ var PostView = Backbone.View.extend({
   },
   select: function(e) {
     var id = $(e.currentTarget).data("id");
-    this.model.setId(id, true);
+    this.model.set("showing", null);
     e.stopPropagation();
   },
 });
 
-module.exports = PostView;
+module.exports = SearchView;

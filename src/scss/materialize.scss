@@ -1,9 +1,9 @@
 // Material Theme 0.0.1
 // -----------------------------------------------------
 @import "variables.scss";
-@import "../node_modules/bootstrap-material/sass/_mixins.scss";
-@import "../node_modules/bootstrap-material/sass/_shadows.scss";
-@import "../node_modules/bootstrap-material/sass/_icons-material-design.scss";
+@import "../../node_modules/bootstrap-material/sass/_mixins.scss";
+@import "../../node_modules/bootstrap-material/sass/_shadows.scss";
+@import "../../node_modules/bootstrap-material/sass/_icons-material-design.scss";
 
 body {
     background-color: #EEEEEE;
@@ -20,19 +20,19 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 // Well and Jumbotrons
-@import "../node_modules/bootstrap-material/sass/_welljumbo.scss";
+@import "../../node_modules/bootstrap-material/sass/_welljumbo.scss";
 
 // Buttons
-@import "../node_modules/bootstrap-material/sass/_buttons.scss";
+@import "../../node_modules/bootstrap-material/sass/_buttons.scss";
 
 // Checkboxes
-@import "../node_modules/bootstrap-material/sass/_checkboxes.scss";
+@import "../../node_modules/bootstrap-material/sass/_checkboxes.scss";
 
 // Radios
-@import "../node_modules/bootstrap-material/sass/_radios.scss";
+@import "../../node_modules/bootstrap-material/sass/_radios.scss";
 
 // Text inputs
-@import "../node_modules/bootstrap-material/sass/_inputs.scss";
+@import "../../node_modules/bootstrap-material/sass/_inputs.scss";
 
 legend {
     border-bottom: 0;
@@ -54,10 +54,10 @@ legend {
 }
 
 // Lists
-@import "../node_modules/bootstrap-material/sass/_lists.scss";
+@import "../../node_modules/bootstrap-material/sass/_lists.scss";
 
 // Navbar
-@import "../node_modules/bootstrap-material/sass/_navbar.scss";
+@import "../../node_modules/bootstrap-material/sass/_navbar.scss";
 
 .dropdown-menu {
     border: 0;
@@ -75,13 +75,13 @@ legend {
 }
 
 // Alerts
-@import "../node_modules/bootstrap-material/sass/_alerts.scss";
+@import "../../node_modules/bootstrap-material/sass/_alerts.scss";
 
 // Progress bar
-@import "../node_modules/bootstrap-material/sass/_progress.scss";
+@import "../../node_modules/bootstrap-material/sass/_progress.scss";
 
 // Panels
-@import "../node_modules/bootstrap-material/sass/_cards.scss";
+@import "../../node_modules/bootstrap-material/sass/_cards.scss";
 
 // Typography
 .text-warning {
@@ -100,13 +100,13 @@ legend {
     color: $btn-info;
 }
 
-@import "../node_modules/bootstrap-material/sass/_tabs.scss";
+@import "../../node_modules/bootstrap-material/sass/_tabs.scss";
 
-@import "../node_modules/bootstrap-material/sass/_popups.scss";
+@import "../../node_modules/bootstrap-material/sass/_popups.scss";
 
-@import "../node_modules/bootstrap-material/sass/_icons.scss";
+@import "../../node_modules/bootstrap-material/sass/_icons.scss";
 
 
 // External plugins
-@import "../node_modules/bootstrap-material/sass/_plugin-snackbarjs.scss";
-@import "../node_modules/bootstrap-material/sass/_plugin-nouislider.scss";
+@import "../../node_modules/bootstrap-material/sass/_plugin-snackbarjs.scss";
+@import "../../node_modules/bootstrap-material/sass/_plugin-nouislider.scss";

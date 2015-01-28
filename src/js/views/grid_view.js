@@ -1,6 +1,7 @@
 var $ = require("jquery");
 var Backbone = require("backbone");
-var hogan = require("hogan.js");
+var templates = require("../templates");
+
 Backbone.$ = $;
 
 var GridModel = require("../models/grid_model");
@@ -25,7 +26,7 @@ var GridView = Backbone.View.extend({
     console.log(this.searchQuery);
   },
   template: function(obj) {
-    return hogan.compile($("#template-gridview").html()).render(obj);
+    return templates.gridview.render(obj);
   },
   render: function() {
     var self = this;

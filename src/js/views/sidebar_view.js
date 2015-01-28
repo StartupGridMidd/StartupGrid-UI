@@ -1,6 +1,6 @@
 var $ = require("jquery");
 var Backbone = require("backbone");
-var hogan = require("hogan.js");
+var templates = require("../templates");
 var common = require("../common");
 Backbone.$ = $;
 
@@ -16,7 +16,7 @@ var SidebarView = Backbone.View.extend({
     this.model.on("change", this.render, this);
   },
   template: function() {
-    return hogan.compile($("#template-sidebar").html()).render(this.model.attributes);
+    return templates.sidebar.render(this.model.attributes);
   },
   render: function() {
     console.log("rendering sidebar");
