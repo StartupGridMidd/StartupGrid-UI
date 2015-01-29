@@ -23,8 +23,8 @@
       margin-bottom: 10px;
       color: $lightGray;
       background: $cream;
-      border-radius: 1px;
-      font-size: 23px;
+      border-radius: 2px;
+      font-size: 17px;
       display: inline-block;
       font-weight: 300;
       padding: 15px;
@@ -40,7 +40,7 @@
     }
   }
   .left-inner-addon {
-    border-radius: 1px;
+    border-radius: 2px;
     position: relative;
     i {
       font-size: 28px;
@@ -53,7 +53,7 @@
       font-weight: 300;
       padding-left: 50px;
       border:0;
-      border-radius: 1px;
+      border-radius: 2px;
       @extend .shadow-z-1;
     }
     .results {

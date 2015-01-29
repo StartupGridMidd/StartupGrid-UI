@@ -14,7 +14,7 @@ div.result-card {
     height: auto;
   }
   background: $white;
-  border-radius: 1px;
+  border-radius: 2px;
   overflow: hidden;
   position:relative;
   margin: 10px 0;
@@ -91,7 +91,7 @@ div.result-card {
       top: 5px;
       color: $green;
       border: 1pt solid $green;
-      border-radius: 3px;
+      border-radius: 2px;
       font-size: 10px;
     }
   }
@@ -106,7 +106,7 @@ div.result-card {
         border: 1pt solid $cream;
         background: $green;
         color: $cream;
-        border-radius: 1px;
+        border-radius: 2px;
       }
     }
   }

@@ -9803,7 +9803,7 @@ div.result-card {
   -moz-transition: height .1s ease-in;
   -ms-transition: height .1s ease-in;
   background: #FFFFFF;
-  border-radius: 1px;
+  border-radius: 2px;
   overflow: hidden;
   position: relative;
   margin: 10px 0;
@@ -9864,7 +9864,7 @@ div.result-card {
       top: 5px;
       color: #49BDA3;
       border: 1pt solid #49BDA3;
-      border-radius: 3px;
+      border-radius: 2px;
       font-size: 10px; }
   div.result-card .expanded-section .tags {
     padding: 10px 0;
@@ -9876,7 +9876,7 @@ div.result-card {
       border: 1pt solid #F4F0E9;
       background: #49BDA3;
       color: #F4F0E9;
-      border-radius: 1px; }
+      border-radius: 2px; }
 
 .sidebar {
   font-weight: 300;
@@ -14827,8 +14827,8 @@ button.close {
       margin-bottom: 10px;
       color: #9f9f9e;
       background: #F4F0E9;
-      border-radius: 1px;
-      font-size: 23px;
+      border-radius: 2px;
+      font-size: 17px;
       display: inline-block;
       font-weight: 300;
       padding: 15px; }
@@ -14837,7 +14837,7 @@ button.close {
         margin-top: 12px;
         margin-bottom: 12px; }
   #container.landing .left-inner-addon {
-    border-radius: 1px;
+    border-radius: 2px;
     position: relative; }
     #container.landing .left-inner-addon i {
       font-size: 28px;
@@ -14849,7 +14849,7 @@ button.close {
       font-weight: 300;
       padding-left: 50px;
       border: 0;
-      border-radius: 1px; }
+      border-radius: 2px; }
     #container.landing .left-inner-addon .results {
       position: absolute;
       background: white;
