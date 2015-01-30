@@ -83,7 +83,15 @@
 
   </script>
   <script type="text/x-mustache" id="template-landing">
+  
   <div class="container">
+          
+    <div class="text-container">
+      <div class="card-row">
+        <div class="col-md-3 author-name">{{author.name}}</div>
+          <div class="col-md-9 article-title">{{title}}</div>
+            </div> 
+
     <div class ="row">
       <div class="col-md-8 col-md-offset-2">
         <img src="img/logo_large.png" alt="" class="logo img-responsive">
@@ -91,7 +99,7 @@
     </div>
     <div class="row"> 
       <div class="search">
-        <div class="col-md-12 col-md-offset">
+        <div class="col-md-12">
           <div class="left-inner-addon">
             <i class="glyphicon glyphicon-search"></i>
             <input type="text" class="search-input form-control input-lg" name="search" placeholder="Search the grid..."/> 
@@ -163,6 +171,7 @@
         </div>
       </div>
     {{/posts}}
+  </div
   </script>
 
 

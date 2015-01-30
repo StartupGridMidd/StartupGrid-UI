@@ -44,7 +44,8 @@ input {
   background: #F4F0E9;
   color: #F4F0E9;
   border-radius: 4px;
-  width: 500px ;
+  width: 500px;
+  
 }
 
 a {
@@ -53,6 +54,8 @@ a {
 
 .left-inner-addon {
   border-radius: 1px;
+  padding-left: 13px;
+  padding-right: 48px;
   i {
     font-size: 28px;
     color: $green;
