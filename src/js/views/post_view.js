@@ -1,38 +1,35 @@
+"use strict";
+
 var $ = require("jquery");
 var Backbone = require("backbone");
-var _ = require("underscore");
-var templates = require("../templates");
-var common = require("../common");
 Backbone.$ = $;
+var templates = require("../templates");
 
 var PostView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'result-card',
   events: {
-    "click .result-card": "expand",
-    "click .result-card.expanded": "goToPost",
-    "click .tag": "select"
+    "click": "toggleExpand",
+    "click .tag": "goToTag"
   },
   initialize: function() {
-    this.model.on("change", this.render, this);
-  },
-  template: function() {
-    return templates.maingrid.render(this.model.attributes);
+    this.attributes = {"data-url": this.model.get('url')};
+    this.listenTo(this.model, "destroy", this.remove);
   },
   render: function() {
-    console.log("rendering post view");
-    this.$el.html(this.template());
+    this.$el.html(templates.post.render(this.model.toJSON()));
   },
-  expand: function(e) {
-    $(e.currentTarget).addClass('expanded');
+  toggleExpand: function(e) {
+    this.$el.toggleClass('expanded');
   },
-  goToPost: function(e) {
-    var url = $(e.currentTarget).data("url");
-    window.open(url, '_blank');
-  },
-  select: function(e) {
-    var id = $(e.currentTarget).data("id");
-    this.model.setId(id, true);
-    e.stopPropagation();
-  },
+  goToTag: function(e) {
+    var tagId = $(e.target).data('id');
+    router.navigate('tags/' + tagId + '/posts', {trigger: true});
+  }
+  // goToPost: function(e) {
+  //   var url = $(e.currentTarget).data("url");
+  //   window.open(url, '_blank');
+  // },  
 });
 
 module.exports = PostView;

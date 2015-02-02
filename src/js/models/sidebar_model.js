@@ -6,9 +6,6 @@ Backbone.$ = $;
 
 var SidebarModel = Backbone.Model.extend({
   initialize: function(params) {
-    this.set("tagId", parseInt(params.tagId, 10), {
-      "silent": true
-    });
     this.fetch();
   },
   fetch: function() {
@@ -82,7 +79,7 @@ var SidebarModel = Backbone.Model.extend({
     });
     this.trigger("change");
     if(clicked) {
-      Backbone.trigger("sidebar:selected", this.get("tagId"));
+      this.trigger("sidebar:selected", this.get("tagId"));
     }
   },
   deselect: function(id, clicked) {
@@ -128,7 +125,7 @@ var SidebarModel = Backbone.Model.extend({
     });
     this.trigger("change");
     if(clicked) {
-      Backbone.trigger("sidebar:deselected", this.get("tagId"));
+      this.trigger("sidebar:deselected", this.get("tagId"));
     }
   },
   deepestSelectedTagId: function(topics) {

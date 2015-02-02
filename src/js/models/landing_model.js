@@ -21,7 +21,6 @@ var LandingModel = Backbone.Model.extend({
   },
   search: function(query) {
     var me = this;
-    console.log("Fetching", query);
     $.ajax({
       url: common.API_URL + '/search.json?q=' + query,
       type: 'GET',

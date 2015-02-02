@@ -1,3 +1,5 @@
+"use strict";
+
 var $ = require("jquery");
 var Backbone = require("backbone");
 var templates = require("../templates");
@@ -5,22 +7,19 @@ var common = require("../common");
 Backbone.$ = $;
 
 var SidebarView = Backbone.View.extend({
-  router: null,
   el: "#sidebar",
   events: {
     "click .sidebar-item": "select",
     "click .sidebar-item i": "cancel"
   },
   initialize: function(params) {
-    this.router = params.router;
     this.model.on("change", this.render, this);
   },
   template: function() {
     return templates.sidebar.render(this.model.attributes);
   },
   render: function() {
-    console.log("rendering sidebar");
-    this.$el.html(this.template());
+    this.$el.html(templates.sidebar.render(this.model.toJSON()));
   },
   select: function(e) {
     var id = $(e.currentTarget).data("id");
@@ -35,4 +34,5 @@ var SidebarView = Backbone.View.extend({
     e.stopPropagation();
   }
 });
+
 module.exports = SidebarView

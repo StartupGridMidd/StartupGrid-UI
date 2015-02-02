@@ -1,3 +1,5 @@
+"use strict";
+
 var $ = require("jquery");
 var Backbone = require("backbone");
 var templates = require("../templates");
@@ -7,7 +9,6 @@ Backbone.$ = $;
 
 var LandingView = Backbone.View.extend({
   initialize: function(params) {
-    this.router = params.router;
     this.model = new LandingModel();
     this.model.on("topics_change", this.render, this);
     this.model.on("search_received", this.renderResults, this);
@@ -20,27 +21,24 @@ var LandingView = Backbone.View.extend({
   searchPosts: function(e) {
     var query = $('.search-input').val();
     if (e.keyCode === 13) {
-      this.router.navigate("search/" + encodeURIComponent(query), {trigger: true});
+      router.navigate("search/" + encodeURIComponent(query), {trigger: true});
       e.preventDefault();
     }
   },
   clickSearchPosts: function(e) {
     var query = $('.search-input').val();
-    this.router.navigate("search/" + encodeURIComponent(query), {trigger: true});
+    router.navigate("search/" + encodeURIComponent(query), {trigger: true});
     e.preventDefault();
   },
   goToTopic: function(e) {
     var id = $(e.currentTarget).data("id");
-    this.router.navigate("tag/" + id, {trigger: true});
-  },
-  template: function() {
-    return templates.landing.render(this.model.attributes);
+    router.navigate("tags/" + id + '/posts', {trigger: true});
   },
   resultsTemplate: function() {
     return templates.results.render(this.model.attributes);
   },
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(templates.landing.render(this.model.toJSON()));
     this.$el.addClass('landing');
   },
   renderResults: function() {

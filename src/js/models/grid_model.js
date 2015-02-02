@@ -3,16 +3,6 @@ var Backbone = require("backbone");
 var hogan = require("hogan.js");
 Backbone.$ = $;
 
-var GridModel = Backbone.Model.extend({
-  attributes: {
-    tagId: null,
-    searchQuery: null,
-    authorId: null,
-    postId: null
-  },
-  initialize: function() {
-
-  }
-});
+var GridModel = Backbone.Model.extend({});
 
 module.exports = GridModel;
