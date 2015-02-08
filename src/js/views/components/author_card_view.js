@@ -18,7 +18,8 @@ var AuthorView = Backbone.View.extend({
     this.$el.html(templates.author_card.render(this.model.toJSON()));
   },
   goToAuthor: function(e) {
-    var path = 'authors/' + this.model.get('id');
+    // var path = 'authors/' + this.model.get('id');
+    var path = "search/" + encodeURIComponent(this.model.get('name'));
     router.navigate(path, {trigger: true});
   }
 });
