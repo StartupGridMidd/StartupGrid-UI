@@ -1,0 +1,21 @@
+{
+  "name": "startupgrid",
+  "root": "./dist",
+  "clean_urls": true,
+  "error_page": "index.html",
+  "routes": {
+    "/**": "index.html"
+  },
+  "forms": {
+    "contact": {
+      "to": "teddyknox@gmail.com",
+      "from": "contact@startupgrid.co",
+      "replyTo": "{{name}} <{{email}}>",
+      "subject": "Contact Received from {{name}}",
+      "html": "<b>Name:</b> {{name}}",
+      "text": "Name: {{name}}",
+      "success": "/contact-received",
+      "failure": "/contact-failure"
+    }
+  }
+}
