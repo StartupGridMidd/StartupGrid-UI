@@ -2,21 +2,21 @@
 
 var $ = require("jquery");
 var Backbone = require("backbone");
-var templates = require("../templates");
-var common = require("../common");
+var _ = require("underscore");
 Backbone.$ = $;
+var templates = require("../../templates");
 
 var SidebarView = Backbone.View.extend({
-  el: "#sidebar",
+  tagName: "div",
+  id: "sidebar",
+  className: "sidebar",
   events: {
     "click .sidebar-item": "select",
     "click .sidebar-item i": "cancel"
   },
-  initialize: function(params) {
-    this.model.on("change", this.render, this);
-  },
-  template: function() {
-    return templates.sidebar.render(this.model.attributes);
+  initialize: function() {
+    _.bindAll(this, 'render');
+    this.listenTo(this.model, "change", this.render);
   },
   render: function() {
     this.$el.html(templates.sidebar.render(this.model.toJSON()));
@@ -35,4 +35,4 @@ var SidebarView = Backbone.View.extend({
   }
 });
 
-module.exports = SidebarView
+module.exports = SidebarView;

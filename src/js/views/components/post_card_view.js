@@ -3,17 +3,17 @@
 var $ = require("jquery");
 var Backbone = require("backbone");
 Backbone.$ = $;
-var templates = require("../templates");
+var templates = require("../../templates");
 
 var PostView = Backbone.View.extend({
   tagName: 'div',
   className: 'result-card',
   events: {
-    "click": "toggleExpand",
-    "click .tag": "goToTag"
+    "click .link": "goToPost",
+    "click .tag": "goToTag",
+    "click": "toggleExpand"
   },
   initialize: function() {
-    this.attributes = {"data-url": this.model.get('url')};
     this.listenTo(this.model, "destroy", this.remove);
   },
   render: function() {
@@ -25,11 +25,13 @@ var PostView = Backbone.View.extend({
   goToTag: function(e) {
     var tagId = $(e.target).data('id');
     router.navigate('tags/' + tagId + '/posts', {trigger: true});
+  },
+  goToPost: function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var url = $(e.currentTarget).attr("href");
+    location.assign(url);
   }
-  // goToPost: function(e) {
-  //   var url = $(e.currentTarget).data("url");
-  //   window.open(url, '_blank');
-  // },  
 });
 
 module.exports = PostView;

@@ -1,59 +1,64 @@
 "use strict";
+var NavView = require("./components/nav_view");
 
 var $ = require("jquery");
 var Backbone = require("backbone");
 var _ = require("underscore");
 var templates = require("../templates");
+var common = require("../common");
 Backbone.$ = $;
-
-var PostView = require('./post_view');
+var Scroller = require("../utilities/scroller");
+var NavModel = require("../models/nav_model");
+var PostCardView = require('./components/post_card_view');
 var SearchedPostCollection = require("../collections/searched_post_collection");
 
 var SearchView = Backbone.View.extend({
-  id: 'main',
+  tagName: "div",
+  id: "container",
   events: {
-    "click .result-card": "expand",
-    "click .result-card.expanded": "goToPost",
-    "click .tag": "select"
+    "blur #nav-search": "navBlur"
   },
   initialize: function(params) {
-    this.gridModel = params.gridModel;
-    _.bindAll(this, 'render');
-    this.listenTo(this.gridModel, 'change:query', this.render);
+    _.bindAll(this, 'queryChange');
+    this.navModel = new NavModel({query: params.query});
+    this.navView = new NavView({model: this.navModel, parent: this});
+    this.scroller = new Scroller();
+    this.collection = new SearchedPostCollection();
+    this.listenTo(this.collection, 'add', this.addPost);
+    this.listenTo(this.collection, 'remove', this.removePost);
+    this.listenTo(this.scroller, "scroll:nearBottom", this.loadMore);
+    this.listenTo(this.navModel, 'change:query', this.queryChange);
+    // this.listenTo(this.navModel, 'change:query', this.setSearchInput);
+    this.queryChange();
   },
-  addPost: function(postModel) {
-    var postView = new PostView({model: postModel});
-    postView.render();
-    this.$('#sg-grid').append(postView.el);
+  navBlur: function() {
+    window.router.navigate('posts', {trigger: true});
   },
-  removePost: function(postModel) {
-    postModel.destroy();
-  },  
-  render: function() {
-    var query = this.gridModel.get('query');
-    if (query.length > 0) {
-      this.$el = $('#' + this.id);
-      this.$el.removeClass();
-      this.$el.addClass('browse');
-      this.$el.html(templates.search.render());
-      this.collection = new SearchedPostCollection(null, {query: query});
-      this.listenTo(this.collection, 'add', this.addPost);
-      this.listenTo(this.collection, 'remove', this.removePost);
+  queryChange: function(model, query) {
+    query = query || this.navModel.get("query");
+    if (query.length) {
+      this.collection.url = common.API_URL + '/search?q=' + query;
       this.collection.fetch();
     }
+    var path = query.length ? "search/" + encodeURIComponent(query) : "search";
+    window.router.navigate(path);
   },
-  expand: function(e) {
-    $(e.currentTarget).addClass('expanded');
+  addPost: function(postModel) {
+    var postCardView = new PostCardView({model: postModel});
+    postCardView.render();
+    this.$('#sg-grid').append(postCardView.el);
   },
-  goToPost: function(e) {
-    var url = $(e.currentTarget).data("url");
-    window.open(url, '_blank');
+  removePost: function(postModel) {
+    postModel.trigger("destroy");
   },
-  select: function(e) {
-    var id = $(e.currentTarget).data("id");
-    this.model.set("showing", null);
-    e.stopPropagation();
-  },
+  render: function() {
+    this.loading = false;
+    this.navView.render();
+    // this.sidebarView.render();
+    this.$el.html(templates.search.render());
+    this.$("#nav-container").html(this.navView.el);
+    this.$("#nav-search").focus();
+  }
 });
 
 module.exports = SearchView;

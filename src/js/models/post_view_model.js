@@ -12,6 +12,7 @@ var PostModel = Backbone.Model.extend({
   initialize: function(params) {
     var tagId = (params.tagId === null) ? null : parseInt(params.tagId, 10);
     this.setId(tagId);
+    this.listenTo(this.model, "remove", function() {console.log("removed"); });
   },
   setId: function(id, clicked) {
     if(clicked == true) {

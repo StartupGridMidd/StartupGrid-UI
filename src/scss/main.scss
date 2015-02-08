@@ -15,6 +15,7 @@ html, body {
   background: $cream;
   font-family: $helvetica;
 }
+
 #container {
   margin:0;
   padding:0;
@@ -97,7 +98,7 @@ html, body {
         border-top-left-radius: 0;
         border-bottom-right-radius: 2px;
         border-top-right-radius: 2px;
-        span.glyphicon { 
+        span.glyphicon {
           color: $green;
         }
         &:focus {
@@ -124,7 +125,7 @@ html, body {
         }
       }
     }
-    .sg-grid {
+    #sg-grid {
       .card {
         width: 220px;
         height: 330px;
@@ -192,6 +193,59 @@ html, body {
             margin:0 5px;
             border-radius: 2px;
             display: inline-block;
+          }
+        }
+      }
+      &.author-browse {
+        margin: -15px;
+      }
+      .author-card {
+        @extend .shadow-z-1;
+        &:hover {
+          @extend .shadow-z-2;
+        }
+
+        float: left;
+        margin: 15px;
+        position: relative;
+        cursor: pointer;
+        font-weight: 300;
+        min-height: 250px;
+        width: 250px;
+        // background: $cream;
+        background-color: white;
+        border-radius: 1px;
+
+        .outer-img-container {
+          height: 200px;
+          padding: 7px;
+        }
+        .inner-img-container{
+          height: 186px;
+          border: 1px solid $lightGray;
+          overflow: hidden;
+        }
+
+        img.author-image {
+          display: block;
+          overflow: hidden;
+          margin: 0 auto;
+          height: 186px;
+          background: $cream;
+        }
+
+        .text-container {
+          padding: 7px;
+          text-align: center;
+          font-family: $helvetica;
+
+          .author-card-name {
+            font-size: 16px;
+            color: $lightGray;
+          }
+          .author-title {
+            font-size: 12px;
+            color: $lightGray;
           }
         }
       }

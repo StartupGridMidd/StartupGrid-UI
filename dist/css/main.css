@@ -4887,10 +4887,10 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-.shadow-z-1, div.result-card, #container.landing .subtopic-container .subtopic-card, #container.landing .left-inner-addon input.form-control, #container.landing .left-inner-addon .results, #container .navbar, #container .navbar .main-search .form-group .results, #container #main .sg-grid .card {
+.shadow-z-1, div.result-card, #container.landing .subtopic-container .subtopic-card, #container.landing .left-inner-addon input.form-control, #container.landing .left-inner-addon .results, #container .navbar, #container .navbar .main-search .form-group .results, #container #main #sg-grid .card, #container #main #sg-grid .author-card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
-.shadow-z-2 {
+.shadow-z-2, #container #main #sg-grid .author-card:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
 
 .shadow-z-2-hover {
@@ -14974,61 +14974,96 @@ html, body {
         text-decoration: none; }
       #container #main .sort-bar a.selected {
         color: #49BDA3; }
-  #container #main .sg-grid .card {
+  #container #main #sg-grid .card {
     width: 220px;
     height: 330px;
     margin: 15px;
     border-radius: 2px;
     background: white;
     float: left; }
-    #container #main .sg-grid .card img {
+    #container #main #sg-grid .card img {
       float: left;
       margin-right: 10px;
       margin-bottom: 10px; }
-    #container #main .sg-grid .card h2.author-name {
+    #container #main #sg-grid .card h2.author-name {
       font-weight: 500;
       font-size: 20px;
       margin: 10px 5px; }
-    #container #main .sg-grid .card .author-title {
+    #container #main #sg-grid .card .author-title {
       margin: 10px 5px;
       font-size: 11px;
       color: #9f9f9e; }
-    #container #main .sg-grid .card .blog-title {
+    #container #main #sg-grid .card .blog-title {
       font-weight: 300;
       font-size: 20px;
       clear: both;
       margin: 5px 10px; }
-    #container #main .sg-grid .card .choice-buttons {
+    #container #main #sg-grid .card .choice-buttons {
       position: relative;
       padding: 5px 0; }
-      #container #main .sg-grid .card .choice-buttons button.card-btn {
+      #container #main #sg-grid .card .choice-buttons button.card-btn {
         position: absolute;
         border: 0;
         padding: 0;
         background-color: transparent;
         color: #9f9f9e; }
-        #container #main .sg-grid .card .choice-buttons button.card-btn:first-child {
+        #container #main #sg-grid .card .choice-buttons button.card-btn:first-child {
           left: 10px; }
-        #container #main .sg-grid .card .choice-buttons button.card-btn:last-child {
+        #container #main #sg-grid .card .choice-buttons button.card-btn:last-child {
           right: 10px; }
-        #container #main .sg-grid .card .choice-buttons button.card-btn.active {
+        #container #main #sg-grid .card .choice-buttons button.card-btn.active {
           color: #49BDA3; }
-    #container #main .sg-grid .card .insights, #container #main .sg-grid .card .questions {
+    #container #main #sg-grid .card .insights, #container #main #sg-grid .card .questions {
       display: none;
       height: 85px; }
-      #container #main .sg-grid .card .insights.visible, #container #main .sg-grid .card .questions.visible {
+      #container #main #sg-grid .card .insights.visible, #container #main #sg-grid .card .questions.visible {
         display: block; }
-    #container #main .sg-grid .card .attribution {
+    #container #main #sg-grid .card .attribution {
       text-align: right;
       margin: 5px;
       font-size: 12px; }
-      #container #main .sg-grid .card .attribution .attributee {
+      #container #main #sg-grid .card .attribution .attributee {
         color: #49BDA3;
         border: 1pt solid #49BDA3;
         padding: 2px 3px;
         margin: 0 5px;
         border-radius: 2px;
         display: inline-block; }
+  #container #main #sg-grid.author-browse {
+    margin: -15px; }
+  #container #main #sg-grid .author-card {
+    float: left;
+    margin: 15px;
+    position: relative;
+    cursor: pointer;
+    font-weight: 300;
+    min-height: 250px;
+    width: 250px;
+    background-color: white;
+    border-radius: 1px; }
+    #container #main #sg-grid .author-card .outer-img-container {
+      height: 200px;
+      padding: 7px; }
+    #container #main #sg-grid .author-card .inner-img-container {
+      height: 186px;
+      border: 1px solid #9f9f9e;
+      overflow: hidden; }
+    #container #main #sg-grid .author-card img.author-image {
+      display: block;
+      overflow: hidden;
+      margin: 0 auto;
+      height: 186px;
+      background: #F4F0E9; }
+    #container #main #sg-grid .author-card .text-container {
+      padding: 7px;
+      text-align: center;
+      font-family: "Helvetica Neue", sans-serif; }
+      #container #main #sg-grid .author-card .text-container .author-card-name {
+        font-size: 16px;
+        color: #9f9f9e; }
+      #container #main #sg-grid .author-card .text-container .author-title {
+        font-size: 12px;
+        color: #9f9f9e; }
 
 .clearfix {
   clear: both; }
