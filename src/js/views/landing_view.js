@@ -39,7 +39,7 @@ var LandingView = Backbone.View.extend({
   resultsTemplate: function() {
     return templates.results.render(this.model.attributes);
   },
-  render: function() {
+  render: function() {    
     this.$el.html(templates.landing.render(this.model.toJSON()));
   },
   renderResults: function() {

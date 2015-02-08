@@ -4,18 +4,24 @@
   "clean_urls": true,
   "error_page": "index.html",
   "routes": {
-    "/**": "index.html"
+    "/*": "index.html",
+    "/contact/*": "index.html",
+    "/tags/*": "index.html",
+    "/authors/*": "index.html",
+    "/posts/*": "index.html",
+    "/search/*": "index.html"
   },
   "forms": {
     "contact": {
       "to": "teddyknox@gmail.com",
       "from": "contact@startupgrid.co",
       "replyTo": "{{name}} <{{email}}>",
-      "subject": "Contact Received from {{name}}",
-      "html": "<b>Name:</b> {{name}}",
-      "text": "Name: {{name}}",
-      "success": "/contact-received",
-      "failure": "/contact-failure"
+      "subject": "StartupGrid contact form message from {{name}}",
+      "html": "{{message}}",
+      "text": "Name: {{name}}\nMessage: {{message}}",
+      "success": "/contact/success",
+      "failure": "/contact/failure"
     }
-  }
+  },
+  "prerender": true
 }

@@ -4,19 +4,16 @@ var NavModel = Backbone.Model.extend({
   defaults: {
     "pages": [
       {
-        "path": "posts",
-        "active": false,
-        "name": "the grid"
+        "path": "authors",
+        "name": "thought leaders"
       },
       {
         "path": "about",
-        "active": false,
-        "name": "who we are"
+        "name": "about"
       },
       {
-        "path": "authors",
-        "active": false,
-        "name": "thought leaders"
+        "path": "contact",
+        "name": "contact"
       }
     ]
   }

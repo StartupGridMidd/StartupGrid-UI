@@ -12,12 +12,15 @@ var PostDetailView = require("./views/post_detail_view");
 var AuthorBrowseView = require("./views/author_browse_view");
 var AuthorDetailView = require("./views/author_detail_view");
 var AboutView = require("./views/about_view");
+var ContactView = require("./views/contact_view");
 var InterviewsView = require("./views/interviews_view");
 
 var AppRouter = Backbone.Router.extend({
   routes: {
     "":                 "landing",
     "about":            "about",
+    "contact":          "contact",
+    "contact/:status":  "contact",
     "interviews":       "interviews",
     "posts":            "post_browse",
     "tags/:id/posts":   "post_browse",
@@ -45,6 +48,11 @@ var AppRouter = Backbone.Router.extend({
   },
   about: function() {
     var view = new AboutView();
+    this.setView(view);
+  },
+  contact: function(status) {
+    status = status || "";
+    var view = new ContactView({status: status});
     this.setView(view);
   },
   interviews: function() {
