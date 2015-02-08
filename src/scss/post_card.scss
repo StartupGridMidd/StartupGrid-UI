@@ -1,0 +1,115 @@
+@import "bootstrap";
+@import "sg_variables";
+
+.post-card {
+  @extend .shadow-z-1;
+  // TODO: Figure out why the card doesn't transition when it's expanded
+  transition: height .1s ease-in;
+  -webkit-transition: height .1s ease-in;
+  -moz-transition: height .1s ease-in;
+  -ms-transition: height .1s ease-in;
+  &:after {
+    content:"";
+    display:table;
+    clear:both;
+  }
+  cursor: pointer;
+  font-weight: 300;
+  background: $white;
+  border-radius: 2px;
+  // overflow: hidden;
+  // text-overflow: '... (click to expand)';
+  position:relative;
+  margin: 10px 0;
+
+  .img-frame {
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+    margin-right: 20px;
+    float: left;
+    border-bottom-right-radius: 2px;
+    img {
+      width: 110px;
+    }
+  }
+
+  .text-container {
+    float: left;
+    width: calc(100% - 200px);
+    position: relative;
+    .row {
+      padding-top: 10px;
+    }
+    .author-name {
+      font-family: $helvetica;
+      font-size: 22px;
+      line-height: 25px;
+    }
+    .article-title {
+      font-family: $helvetica;
+      font-size: 18px;
+      line-height: 25px;
+      vertical-align: middle;
+    }
+    .company-name {
+      color: $darkGray;
+    }
+    .summary {
+      // height: 40px;
+      overflow: hidden;
+      color: $darkGray;
+      font-size: 13px;
+      transition: height .1s ease-in;
+    }
+  }
+  .reviewers {
+    float: right;
+    margin: 15px 15px 0 0;
+    padding: 0;
+    li {
+      font-style: 300;
+      display: inline-block;
+      padding: 3px;
+      top: 5px;
+      color: $green;
+      border: 1pt solid $green;
+      border-radius: 2px;
+      font-size: 10px;
+    }
+  }
+  .tags {
+    list-style-type: none;
+    padding: 0;
+    margin: 6px -2px 10px;
+    text-align: left;
+    li {
+      transition: background-color .1s linear, color .1s linear;
+      -webkit-transition: background-color .1s linear, color .1s linear;
+      -moz-transition: background-color .1s linear, color .1s linear;
+      -ms-transition: background-color .1s linear, color .1s linear;
+      margin: 2px;
+
+      display: inline-block;
+      // border: 1pt solid $cream;
+      // background: $green;
+      // color: $cream;
+      color: $green;
+      border: 1pt solid $green;
+      border-radius: 2px;
+      a {
+        padding: 4px;
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &:hover {
+        background-color: $green;
+        color: $white;
+      }
+    }
+  }
+}

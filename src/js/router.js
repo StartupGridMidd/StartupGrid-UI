@@ -6,7 +6,6 @@ var _ = require("underscore");
 // require('backbone-query-parameters');
 
 var LandingView = require("./views/landing_view");
-// TODO: Figure out why SearchView must be imported before PostBrowseView nav_view.js#29
 var SearchView = require("./views/search_view");
 var PostBrowseView = require("./views/post_browse_view");
 var PostDetailView = require("./views/post_detail_view");
@@ -34,10 +33,10 @@ var AppRouter = Backbone.Router.extend({
   },
   setView: function(view) {
     if (this.view) {
+      this.view.$el.css('opacity', 0);
       this.view.remove();
     }
     this.view = view;
-    this.view.render();
     this.body.append(this.view.el);
   },
   landing: function() {
@@ -58,7 +57,7 @@ var AppRouter = Backbone.Router.extend({
     } else {
       tagId = null;
       this.navigate("posts");
-    };
+    }
     var view = new PostBrowseView({tagId: tagId});
     this.setView(view);
   },
@@ -67,7 +66,7 @@ var AppRouter = Backbone.Router.extend({
       postId = parseInt(postId);
     } else {
       this.navigate("posts");
-    };
+    }
     var view = new PostDetailView({postId: postId});
     this.setView(view);
   },
@@ -80,7 +79,7 @@ var AppRouter = Backbone.Router.extend({
       authorId = parseInt(authorId);
     } else {
       return this.navigate("authors", {trigger: true});
-    };
+    }
     var view = new AuthorDetailView({authorId: authorId});
     this.setView(view);
   },
@@ -89,7 +88,10 @@ var AppRouter = Backbone.Router.extend({
     var view = new SearchView({query: query});
     this.setView(view);
     // TODO: Make this work without the hack
-    $("#nav-search").focus();
+    var searchbar = $("#nav-search");
+    var querylen = searchbar.val().length;
+    searchbar.selectionStart = searchbar.selectionEnd = querylen;
+    searchbar.focus();
   },
   default: function() {
     this.navigate('', {trigger: true});

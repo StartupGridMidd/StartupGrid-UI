@@ -7,11 +7,11 @@ var templates = require("../../templates");
 
 var PostView = Backbone.View.extend({
   tagName: 'div',
-  className: 'result-card',
+  className: 'post-card',
   events: {
     "click .link": "goToPost",
-    "click .tag": "goToTag",
-    "click": "toggleExpand"
+    "click .tags li": "goToTag",
+    // "click": "toggleExpand"
   },
   initialize: function() {
     this.listenTo(this.model, "destroy", this.remove);
@@ -19,12 +19,15 @@ var PostView = Backbone.View.extend({
   render: function() {
     this.$el.html(templates.post.render(this.model.toJSON()));
   },
-  toggleExpand: function(e) {
+  toggleExpand: function() {
     this.$el.toggleClass('expanded');
+    // this.$el.css('height', 'auto');
   },
   goToTag: function(e) {
-    var tagId = $(e.target).data('id');
-    router.navigate('tags/' + tagId + '/posts', {trigger: true});
+    e.preventDefault();
+    e.stopPropagation();
+    var path = $(e.target).attr("href");
+    window.router.navigate(path, {trigger: true});
   },
   goToPost: function(e) {
     e.preventDefault();

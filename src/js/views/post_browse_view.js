@@ -25,15 +25,13 @@ var PostBrowseView = Backbone.View.extend({
   initialize: function(params) {
     _.bindAll(this, "render", "addPost", "loadMore", "tagChange");
     this.sidebarModel = new SidebarModel({tagId: params.tagId});
-    this.tagChange();
     this.navModel = new NavModel();
     this.scroller = new Scroller();
     this.listenTo(this.scroller, "scroll:nearBottom", this.loadMore);
     this.listenTo(this.sidebarModel, "change:tagId", this.tagChange);
     this.listenTo(this.sidebarModel, "sidebar:selected sidebar:deselected", this.tagChange);
-    this.navView = new NavView({model: this.navModel, parent: this});
-    this.sidebarView = new SidebarView({model: this.sidebarModel});
-    // to avoid race condition
+    this.render();
+    this.tagChange();
   },
   tagChange: function() {
     var tagId = this.sidebarModel.get("tagId");
@@ -47,6 +45,7 @@ var PostBrowseView = Backbone.View.extend({
     }
     this.listenTo(this.collection.fullCollection, "add", this.addPost);
     this.$("#sg-grid").empty();
+    // TODO: Address the race condition between this and render
     this.collection.getFirstPage();
     var route = tagId ? "tags/" + tagId + "/posts" : "posts";
     window.router.navigate(route);
@@ -80,8 +79,8 @@ var PostBrowseView = Backbone.View.extend({
   },
   render: function() {
     this.loading = false;
-    this.navView.render();
-    this.sidebarView.render();
+    this.navView = new NavView({model: this.navModel});
+    this.sidebarView = new SidebarView({model: this.sidebarModel});
     this.$el.html(templates.post_browse.render());
     this.$("#nav-container").html(this.navView.el);
     this.$("#sidebar-container").html(this.sidebarView.el);

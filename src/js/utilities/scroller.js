@@ -22,7 +22,7 @@ _.extend(Scroller.prototype, Backbone.Events, {
   detectPageBottom: function() {
     if (this.sampleWait === 0) {
       this.sampleWait = this.sampleRate;
-      var loadLine = this.$d.height() - (this.$w.height() * 1.5);
+      var loadLine = this.$d.height() - (this.$w.height() * 2);
       if (window.pageYOffset >= loadLine) {
         this.trigger('scroll:nearBottom');
       }

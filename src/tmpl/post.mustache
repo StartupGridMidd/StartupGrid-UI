@@ -1,26 +1,25 @@
 <ul class="reviewers">
    <li>SG</li>
- </ul>
-<div class="image-container">
-  <div class="card-image">
-    <img src="{{author.image_url}}" alt="">
-  </div>
+</ul>
+<div class="img-frame">
+  <img src="{{author.image_url}}" alt="">
 </div>
 <div class="text-container">
-  <div class="card-row">
+  <div class="row card-row">
     <div class="col-md-3 author-name">{{author.name}}</div>
     <div class="col-md-9 article-title"><a class="link" href="{{url}}">{{title}}</a></div>
   </div>
-
-  <div class="card-row">
+  <div class="row card-row">
     <div class="col-md-3 company-name">{{author.title}}</div>
-    <div class="col-md-9 quote">{{summary}}</div>
+    <div class="col-md-9 summary">{{summary}}</div>
   </div>
-</div>
-<div class="expanded-section col-md-12">
-  <div class="col-md-12 tags">
-    {{#tags}}
-      <span class="tag" data-id="{{id}}">{{name}}</span>
-    {{/tags}}
+  <div class="row">
+    <div class="col-md-9 col-md-offset-3">
+      <ul class="tags">
+        {{#tags}}
+          <li><a href="tags/{{id}}/posts">{{name}}</a></li>
+        {{/tags}}
+      </ul>
+    </div>
   </div>
 </div>

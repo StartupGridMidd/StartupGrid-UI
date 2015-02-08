@@ -1,0 +1,16 @@
+@import "bootstrap";
+@import "sg_mixins";
+@import "sg_variables";
+
+.about {
+  text-align: center;
+  h1 {
+    color: $green;
+  }
+  p {
+    color: $darkGray;
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 14px;
+  }
+}

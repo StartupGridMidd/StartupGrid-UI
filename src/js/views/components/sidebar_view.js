@@ -17,6 +17,7 @@ var SidebarView = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this, 'render');
     this.listenTo(this.model, "change", this.render);
+    this.render();
   },
   render: function() {
     this.$el.html(templates.sidebar.render(this.model.toJSON()));

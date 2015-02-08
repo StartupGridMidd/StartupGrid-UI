@@ -21,7 +21,6 @@ var SearchView = Backbone.View.extend({
   initialize: function(params) {
     _.bindAll(this, 'queryChange');
     this.navModel = new NavModel({query: params.query});
-    this.navView = new NavView({model: this.navModel, parent: this});
     this.scroller = new Scroller();
     this.collection = new SearchedPostCollection();
     this.listenTo(this.collection, 'add', this.addPost);
@@ -29,10 +28,13 @@ var SearchView = Backbone.View.extend({
     this.listenTo(this.scroller, "scroll:nearBottom", this.loadMore);
     this.listenTo(this.navModel, 'change:query', this.queryChange);
     // this.listenTo(this.navModel, 'change:query', this.setSearchInput);
+    this.render();
     this.queryChange();
   },
   navBlur: function() {
-    window.router.navigate('posts', {trigger: true});
+    if (this.collection.length === 0) {
+      window.router.navigate('posts', {trigger: true});
+    }
   },
   queryChange: function(model, query) {
     query = query || this.navModel.get("query");
@@ -53,8 +55,7 @@ var SearchView = Backbone.View.extend({
   },
   render: function() {
     this.loading = false;
-    this.navView.render();
-    // this.sidebarView.render();
+    this.navView = new NavView({model: this.navModel, parent: this});
     this.$el.html(templates.search.render());
     this.$("#nav-container").html(this.navView.el);
     this.$("#nav-search").focus();

@@ -6,20 +6,28 @@ Backbone.$ = $;
 var _ = require("underscore");
 var templates = require("../templates");
 
+var NavView = require("./components/nav_view");
+var NavModel = require("../models/nav_model");
 var AuthorCollection = require("../collections/author_collection");
 var AuthorCardView = require("./components/author_card_view");
+var Scroller = require("../utilities/scroller");
 
 var AuthorBrowseView = Backbone.View.extend({
-  id: 'main',
-  initialize: function(params) {
-    this.gridModel = params.gridModel;
-    _.bindAll(this, 'render', 'addAuthor', 'onScrollNearBottom');
-    this.listenTo(this.gridModel, "change:authorId", this.render);
-    this.listenTo(this.gridModel, "scroll:nearBottom", this.onScrollNearBottom);
+  tagName: "div",
+  id: "container",
+  initialize: function() {
+    _.bindAll(this, 'render', 'addAuthor', 'loadMore');
+    this.navModel = new NavModel();
+    this.scroller = new Scroller();
+    this.navView = new NavView({model: this.navModel});
+    this.collection = new AuthorCollection();
+    this.listenTo(this.collection.fullCollection, "add", this.addAuthor);
+    this.listenTo(this.scroller, "scroll:nearBottom", this.loadMore);
+    this.render();
   },
-  onScrollNearBottom: function () {
+  loadMore: function() {
     var self = this;
-    if (!this.loading && this.$el.hasClass('author_browse')) {
+    if (!this.loading) {
       this.loading = true;
       try {
         this.collection.getNextPage().done(function() {
@@ -40,28 +48,10 @@ var AuthorBrowseView = Backbone.View.extend({
   },
   render: function() {
     this.loading = false;
-    this.$el = $('#' + this.id);
-    // TODO: trade this out for a more deliberate using the GridView to switch active state
-    if (!this.$el.hasClass('author_browse')) {
-      this.$el.removeClass();
-      this.$el.addClass('author_browse');
-      this.$el.html(templates.author_browse.render());
-    }
-    this.$('#sg-grid').empty();
-    if (this.collection) {
-      this.stopListening(this.collection.fullCollection);
-    }
-    var authorId = this.gridModel.get('authorId');
-    this.collection = new AuthorCollection(null, {authorId: authorId});
-    this.listenTo(this.collection.fullCollection, "add", this.addAuthor);
+    this.navView = new NavView({model: this.navModel});
+    this.$el.html(templates.author_browse.render());
+    this.$("#nav-container").html(this.navView.el);
     this.collection.getFirstPage();
-
-    // TODO: this needs some work
-    // Backbone.on("post:tag:clicked", function(tagId) {
-    //   var route = (tagId == null) ? "/tags" : "/tags/" + tagId + '/posts';
-    //   self.sidebarView.model.select(tagId);
-    //   router.navigate(route);
-    // });
   }
 });
 
