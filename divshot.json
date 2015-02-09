@@ -13,7 +13,7 @@
   },
   "forms": {
     "contact": {
-      "to": "teddyknox@gmail.com",
+      "to": "teddyknox@gmail.com,jvacovec@gmail.com",
       "from": "contact@startupgrid.co",
       "replyTo": "{{name}} <{{email}}>",
       "subject": "StartupGrid contact form message from {{name}}",
