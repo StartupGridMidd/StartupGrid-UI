@@ -14,12 +14,12 @@ var LandingView = Backbone.View.extend({
     this.model = new LandingModel();
     this.model.on("topics_change", this.render, this);
     this.model.on("search_received", this.renderResults, this);
+    $( window ).on("resize", this.resize, this);
   },
   events: {
     "click .subtopic-card": "goToTopic",
     "keypress .search-input": "searchPosts",
     "click .btn": "clickSearchPosts",
-    "resize window": "resize",
   },
   searchPosts: function(e) {
     var query = $('.search-input').val();
