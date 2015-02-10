@@ -14,7 +14,6 @@ var LandingView = Backbone.View.extend({
     this.model = new LandingModel();
     this.model.on("topics_change", this.render, this);
     this.model.on("search_received", this.renderResults, this);
-    $( window ).on("resize", this.resize, this);
   },
   events: {
     "click .subtopic-card": "goToTopic",
@@ -46,9 +45,6 @@ var LandingView = Backbone.View.extend({
   renderResults: function() {
     this.$el.find(".results").html(this.resultsTemplate());
   },
-  resize: function() {
-    console.log("hello");
-  }
 });
 
 module.exports = LandingView;
