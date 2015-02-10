@@ -19,6 +19,7 @@ var LandingView = Backbone.View.extend({
     "click .subtopic-card": "goToTopic",
     "keypress .search-input": "searchPosts",
     "click .btn": "clickSearchPosts",
+    "resize window": "resize",
   },
   searchPosts: function(e) {
     var query = $('.search-input').val();
@@ -44,6 +45,9 @@ var LandingView = Backbone.View.extend({
   },
   renderResults: function() {
     this.$el.find(".results").html(this.resultsTemplate());
+  },
+  resize: function() {
+    console.log("hello");
   }
 });
 
