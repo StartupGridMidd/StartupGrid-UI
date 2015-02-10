@@ -2,15 +2,19 @@
 
 var $ = require("jquery");
 var Backbone = require("backbone");
+Backbone.$ = $;
+var _ = require("underscore");
+
 var templates = require("../templates");
 var LandingModel = require("../models/landing_model");
-Backbone.$ = $;
+
 
 var LandingView = Backbone.View.extend({
   tagName: "div",
   id: "container",
   className: "landing",
   initialize: function() {
+    _.bindAll(this, 'resize');
     this.model = new LandingModel();
     this.model.on("topics_change", this.render, this);
     this.model.on("search_received", this.renderResults, this);
@@ -39,7 +43,7 @@ var LandingView = Backbone.View.extend({
   resultsTemplate: function() {
     return templates.results.render(this.model.attributes);
   },
-  render: function() {    
+  render: function() {
     this.$el.html(templates.landing.render(this.model.toJSON()));
   },
   renderResults: function() {
