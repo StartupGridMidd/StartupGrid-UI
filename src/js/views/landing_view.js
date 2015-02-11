@@ -51,7 +51,12 @@ var LandingView = Backbone.View.extend({
     this.$el.find(".results").html(this.resultsTemplate());
   },
   resize: function() {
-    console.log("hello");
+    console.log("window-width: " + $( window ).width());
+    console.log("window-height: " + $( window ).height());
+    console.log("container-width: " + this.$el.find(".row").width());
+    console.log("container-height: " + this.$el.find(".row").height());
+    console.log("col-md-3-height: " + this.$el.find(".col-md-3").height());
+    console.log("col-sm-4-height: " + this.$el.find(".col-sm-4").height());
   }
 });
 
