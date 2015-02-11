@@ -19773,7 +19773,7 @@ button.close {
       font-size: 17px;
       display: inline-block;
       font-weight: 300;
-      padding: 15px; }
+      padding: 0px; }
       #container.landing .subtopic-container .subtopic-card img {
         opacity: 0.4;
         margin-top: 12px;
@@ -19825,7 +19825,7 @@ button.close {
     #container.landing .footer li {
       display: inline-block;
       padding: 25px;
-      font-size: 20pt;
+      font-size: 15pt;
       font-weight: 300; }
     #container.landing .footer a {
       color: #F4F0E9; }
