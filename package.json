@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "backbone.paginator": "^2.0.2",
+    "divshot-cli": "^1.7.3",
     "gulp": "^3.8.10",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.4.3",
