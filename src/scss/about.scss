@@ -13,4 +13,45 @@
     line-height: 27px;
     margin-bottom: 14px;
   }
+
+  h4 {
+    color: $darkGray;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  h5 {
+    color: $darkGray;
+    font-size: 14px;
+    font-weight: 200;
+    margin-top: -8px;
+  }
+  .img-container {
+    border-radius: 500px;
+    overflow: hidden;
+    height: 100px;
+    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        overflow: hidden;
+
+    }
+    .img-wide {
+      height: 100px;
+      width: auto;
+    }
+  }
 }
+
+.team {
+    margin: 30px;
+  }
+
+
+
+
