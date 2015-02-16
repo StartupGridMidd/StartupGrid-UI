@@ -24746,6 +24746,34 @@ button.close {
     font-size: 18px;
     line-height: 27px;
     margin-bottom: 14px; }
+  .about h4 {
+    color: #9f9f9e;
+    font-size: 18px;
+    font-weight: 400; }
+  .about h5 {
+    color: #9f9f9e;
+    font-size: 14px;
+    font-weight: 200;
+    margin-top: -8px; }
+  .about .img-container {
+    border-radius: 500px;
+    overflow: hidden;
+    height: 100px;
+    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block; }
+    .about .img-container img {
+      display: block;
+      margin: 0 auto;
+      width: 100px;
+      overflow: hidden; }
+    .about .img-container .img-wide {
+      height: 100px;
+      width: auto; }
+
+.team {
+  margin: 30px; }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
