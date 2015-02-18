@@ -5,6 +5,11 @@
 #container.landing {
   background: $green;
   color: $cream;
+  .logo {
+    width: 100%;
+    // padding: 20px 0;
+    margin: auto;
+  }
   .logo-container {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -17,21 +22,21 @@
     .subtopic-card {
       transition: box-shadow .1s ease-in;
       cursor: pointer;
-      height: 170px;
-      width: 200px;
+      height: 150px;
+      width: 100%;
       margin-top: 10px;
       margin-bottom: 10px;
       color: $darkGray;
       background: $cream;
       border-radius: 2px;
-      font-size: 17px;
+      font-size: 100%;
       display: inline-block;
       font-weight: 300;
       padding: 15px;
       @extend .shadow-z-1;
       img {
         opacity: 0.4;
-        margin-top: 12px;
+        // margin-top: 12px;
         margin-bottom: 12px;
       }
       &:hover {

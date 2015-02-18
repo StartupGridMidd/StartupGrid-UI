@@ -1,36 +1,35 @@
 <div class="container">
   <div class ="logo-container row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-sm-6 col-sm-offset-3">
       <img src="img/logo_large.png" alt="" class="logo img-responsive">
     </div>
   </div>
-  <div class="row">
-    <div class="search">
-      <div class="col-md-12 col-md-offset">
-        <div class="left-inner-addon">
-          <i id="landing-search-img" class="glyphicon glyphicon-search"></i>
-          <input type="text" id="landing-search" class="search-input form-control input-lg"
-            name="search" placeholder="Search the grid..." autofocus/>
-          <div class="results col-md-12">
-
-          </div>
-        </div>
+  <div class="row search">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="left-inner-addon">
+        <i id="landing-search-img" class="glyphicon glyphicon-search"></i>
+        <input type="text" id="landing-search" class="search-input form-control input-lg"
+          name="search" placeholder="Search the grid..." autofocus autocomplete="off"/>
       </div>
     </div>
   </div>
   <div class="subtopics-row row">
-  {{#topics}}
-    <div class="subtopic-container col-md-3 col-sm-6 col-xs-6 text-center">
-      <div class="subtopic-card" data-id="{{id}}">
-      <div><img src="/img/ui-elements/{{id}}.png" alt="" width="70"/></div>
-      {{name}}
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="row">
+        {{#topics}}
+          <div class="subtopic-container col-md-3 col-sm-3 col-xs-6 text-center">
+            <div class="subtopic-card" data-id="{{id}}">
+            <div><img src="/img/ui-elements/{{id}}.png" alt="" width="70"/></div>
+            {{name}}
+            </div>
+          </div>
+        {{/topics}}
       </div>
     </div>
-  {{/topics}}
   </div>
-    <div class="row footer">
-      <li><a href="/about"> who we are </a></li>
-      <li><a href="/authors"> thought leaders </a></li>
-      <li><a href="/contact"> contact </a></li>
-    </div>
+  <div class="row footer">
+    <li><a href="/about"> who we are </a></li>
+    <li><a href="/authors"> thought leaders </a></li>
+    <li><a href="/contact"> contact </a></li>
+  </div>
 </div>

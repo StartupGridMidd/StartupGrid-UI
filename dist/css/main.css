@@ -9810,6 +9810,8 @@ button.close {
     display: table;
     clear: both; }
   .post-card .img-frame {
+    width: 110px;
+    height: 110px;
     overflow: hidden;
     margin-right: 20px;
     float: left;
@@ -19749,6 +19751,9 @@ button.close {
 #container.landing {
   background: #49BDA3;
   color: #F4F0E9; }
+  #container.landing .logo {
+    width: 100%;
+    margin: auto; }
   #container.landing .logo-container {
     padding-top: 20px;
     padding-bottom: 20px; }
@@ -19759,20 +19764,19 @@ button.close {
     #container.landing .subtopic-container .subtopic-card {
       transition: box-shadow .1s ease-in;
       cursor: pointer;
-      height: 170px;
-      width: 200px;
+      height: 150px;
+      width: 100%;
       margin-top: 10px;
       margin-bottom: 10px;
       color: #9f9f9e;
       background: #F4F0E9;
       border-radius: 2px;
-      font-size: 17px;
+      font-size: 100%;
       display: inline-block;
       font-weight: 300;
       padding: 15px; }
       #container.landing .subtopic-container .subtopic-card img {
         opacity: 0.4;
-        margin-top: 12px;
         margin-bottom: 12px; }
   #container.landing .left-inner-addon {
     border-radius: 2px;
