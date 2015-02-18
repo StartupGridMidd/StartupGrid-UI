@@ -14,11 +14,9 @@ var LandingView = Backbone.View.extend({
   id: "container",
   className: "landing",
   initialize: function() {
-    _.bindAll(this, 'resize');
     this.model = new LandingModel();
     this.model.on("topics_change", this.render, this);
     this.model.on("search_received", this.renderResults, this);
-    $( window ).on("resize", this.resize);
   },
   events: {
     "click .subtopic-card": "goToTopic",
@@ -49,14 +47,6 @@ var LandingView = Backbone.View.extend({
   },
   renderResults: function() {
     this.$el.find(".results").html(this.resultsTemplate());
-  },
-  resize: function() {
-    console.log("window-width: " + $( window ).width());
-    console.log("window-height: " + $( window ).height());
-    console.log("container-width: " + this.$el.find(".row").width());
-    console.log("container-height: " + this.$el.find(".row").height());
-    console.log("col-md-3-height: " + this.$el.find(".col-md-3").height());
-    console.log("col-sm-4-height: " + this.$el.find(".col-sm-4").height());
   }
 });
 
