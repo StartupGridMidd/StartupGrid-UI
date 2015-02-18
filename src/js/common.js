@@ -1,5 +1,5 @@
 "use strict";
 
 module.exports = {
-  API_URL: "http://api.startupgrid.co"
+  API_URL: "http://localhost:3000"
 };

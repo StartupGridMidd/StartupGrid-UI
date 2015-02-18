@@ -11,7 +11,7 @@ var PostView = Backbone.View.extend({
   events: {
     "click .link": "goToPost",
     "click .tags li": "goToTag",
-    // "click": "toggleExpand"
+    "click": "toggleExpand"
   },
   initialize: function() {
     this.listenTo(this.model, "destroy", this.remove);

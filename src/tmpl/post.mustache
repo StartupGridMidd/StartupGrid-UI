@@ -9,17 +9,26 @@
     <div class="col-md-3 author-name">{{author.name}}</div>
     <div class="col-md-9 article-title"><a class="link" href="{{url}}">{{title}}</a></div>
   </div>
-  <div class="row card-row">
-    <div class="col-md-3 company-name">{{author.title}}</div>
-    <div class="col-md-9 summary">{{summary}}</div>
+  <div class="collapsed-content">
+    <div class="row card-row">
+      <div class="col-md-3 company-name">{{author.title}}</div>
+      <div class="col-md-9 summary excerpt">{{summary_excerpt}}</div>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-md-9 col-md-offset-3">
-      <ul class="tags">
-        {{#tags}}
-          <li><a href="tags/{{id}}/posts">{{name}}</a></li>
-        {{/tags}}
-      </ul>
+  <div class="expanded-content">
+    <div class="row card-row">
+      <div class="col-md-3 company-name">{{author.title}}</div>
+      <div class="col-md-9 summary">{{summary}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-9 col-md-offset-3">
+        Tags:
+        <ul class="tags">
+          {{#tags}}
+            <li><a href="tags/{{id}}/posts">{{name}}</a>{{^last}}, {{/last}}</li>
+          {{/tags}}
+        </ul>
+      </div>
     </div>
   </div>
 </div>

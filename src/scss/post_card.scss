@@ -19,12 +19,12 @@
   border-radius: 2px;
   // overflow: hidden;
   // text-overflow: '... (click to expand)';
-  position:relative;
+  position: relative;
   margin: 10px 0;
 
   .img-frame {
-    width: 110px;
-    height: 110px;
+    // width: 110px;
+    // height: 110px;
     overflow: hidden;
     margin-right: 20px;
     float: left;
@@ -38,9 +38,10 @@
     float: left;
     width: calc(100% - 200px);
     position: relative;
+    padding: 5px 0;
     .row {
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
     .author-name {
       font-family: $helvetica;
@@ -85,13 +86,14 @@
   .tags {
     list-style-type: none;
     padding: 0;
-    margin: 6px -2px 10px;
     text-align: left;
+    margin: 6px -2px 10px;
+
     li {
-      transition: background-color .1s linear, color .1s linear;
-      -webkit-transition: background-color .1s linear, color .1s linear;
-      -moz-transition: background-color .1s linear, color .1s linear;
-      -ms-transition: background-color .1s linear, color .1s linear;
+      // transition: background-color .1s linear, color .1s linear;
+      // -webkit-transition: background-color .1s linear, color .1s linear;
+      // -moz-transition: background-color .1s linear, color .1s linear;
+      // -ms-transition: background-color .1s linear, color .1s linear;
 
       display: inline-block;
       // border: 1pt solid $cream;
@@ -100,18 +102,30 @@
       color: $grey;
       border-radius: 2px;
       a {
-        display: block;
+      //   display: block;
         color: inherit;
-        text-decoration: none;
-        font-size: 10px;
-        &:hover {
-          text-decoration: none;
-        }
+      //   // text-decoration: none;
+        font-size: 12px;
+      //   // &:hover {
+      //   //   text-decoration: none;
+      //   // }
       }
-      &:hover {
-        background-color: $green;
-        color: $white;
-      }
+      // &:hover {
+      //   background-color: $green;
+      //   color: $white;
+      // }
     }
+  }
+  .expanded-content {
+    display: none;
+  }
+}
+
+.post-card.expanded {
+  .collapsed-content {
+    display: none;
+  }
+  .expanded-content {
+    display: block;
   }
 }
