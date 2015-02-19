@@ -2,6 +2,8 @@
 
 var Backbone = require("backbone");
 var $ = require("jquery");
+window.jQuery = $;
+require("bootstrap");
 Backbone.$ = $;
 var AppRouter = require("./router");
 
