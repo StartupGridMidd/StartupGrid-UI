@@ -22,9 +22,9 @@ var SearchView = Backbone.View.extend({
     _.bindAll(this, 'queryChange');
     this.navModel = new NavModel({query: params.query, page: "search"});
     this.scroller = new Scroller();
-    this.collection = new SearchedPostCollection();
-    this.listenTo(this.collection, 'add', this.addPost);
-    this.listenTo(this.collection, 'remove', this.removePost);
+    // this.collection = new SearchedPostCollection();
+    // this.listenTo(this.collection, 'add', this.addPost);
+    // this.listenTo(this.collection, 'remove', this.removePost);
     this.listenTo(this.scroller, "scroll:nearBottom", this.loadMore);
     this.listenTo(this.navModel, 'change:query', this.queryChange);
     // this.listenTo(this.navModel, 'change:query', this.setSearchInput);
@@ -37,24 +37,28 @@ var SearchView = Backbone.View.extend({
     }
   },
   queryChange: function(model, query) {
+    console.log("query change");
     query = query || this.navModel.get("query");
-    console.log(query);
     if (query.length) {
-      console.log("load query");
-      this.collection.url = common.API_URL + '/search?q=' + query;
+      if(this.collection) {
+        this.stopListening(this.collection);
+        this.$("#sg-grid").empty();
+      }
+      this.collection = new SearchedPostCollection(null, {url: common.API_URL + '/search?q=' + query});
+      this.listenTo(this.collection, 'add', this.addPost);
+      this.listenTo(this.collection, 'remove', this.removePost);
+      // this.collection.url = common.API_URL + '/search?q=' + query;
       this.collection.fetch();
     }
     var path = query.length ? "search/" + encodeURIComponent(query) : "search";
     window.router.navigate(path);
   },
   addPost: function(postModel) {
-    console.log("add post");
     var postCardView = new PostCardView({model: postModel});
     postCardView.render();
     this.$('#sg-grid').append(postCardView.el);
   },
   removePost: function(postModel) {
-    console.log("remove post");
     postModel.trigger("destroy");
   },
   render: function() {

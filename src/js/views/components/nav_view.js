@@ -34,7 +34,12 @@ var NavView = Backbone.View.extend({
     setTimeout(this.search, 0, e);
   },
   setQuery: function(query) {
-    this.model.set("query", query);
+    var curQuery = this.model.get("query");
+    if (curQuery !== query) {
+      this.model.set("query", query);
+    } else {
+      this.model.trigger("change:query", this.model, query);
+    }
   },
   goToPage: function(e) {
     e.preventDefault(); e.stopPropagation();
