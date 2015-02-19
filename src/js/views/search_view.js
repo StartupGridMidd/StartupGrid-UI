@@ -38,7 +38,9 @@ var SearchView = Backbone.View.extend({
   },
   queryChange: function(model, query) {
     query = query || this.navModel.get("query");
+    console.log(query);
     if (query.length) {
+      console.log("load query");
       this.collection.url = common.API_URL + '/search?q=' + query;
       this.collection.fetch();
     }
@@ -46,11 +48,13 @@ var SearchView = Backbone.View.extend({
     window.router.navigate(path);
   },
   addPost: function(postModel) {
+    console.log("add post");
     var postCardView = new PostCardView({model: postModel});
     postCardView.render();
     this.$('#sg-grid').append(postCardView.el);
   },
   removePost: function(postModel) {
+    console.log("remove post");
     postModel.trigger("destroy");
   },
   render: function() {

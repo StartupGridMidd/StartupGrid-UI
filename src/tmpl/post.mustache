@@ -2,7 +2,7 @@
    <li>SG</li>
 </ul>
 <div class="img-frame">
-  <img src="{{author.image_url}}" alt="">
+  <img src="{{#author.image_url}}{{author.image_url}}{{/author.image_url}}{{^author.image_url}}/img/squarelogo.png{{/author.image_url}}" alt="">
 </div>
 <div class="text-container">
   <div class="row card-row">
