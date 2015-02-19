@@ -9871,6 +9871,12 @@ button.close {
       .post-card .tags li a {
         color: inherit;
         font-size: 12px; }
+  .post-card .quotes {
+    color: #9E9E9E;
+    font-size: 12px; }
+  .post-card .media-type {
+    color: #9E9E9E;
+    font-size: 12px; }
   .post-card .expanded-content {
     display: none; }
 
