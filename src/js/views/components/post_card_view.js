@@ -33,7 +33,8 @@ var PostView = Backbone.View.extend({
     e.preventDefault();
     e.stopPropagation();
     var url = $(e.currentTarget).attr("href");
-    location.assign(url);
+    var win = window.open(url, '_blank');
+  win.focus();
   }
 });
 

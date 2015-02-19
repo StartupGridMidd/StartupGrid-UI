@@ -7,7 +7,7 @@
 .shadow-z-2-hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.28); }
 
-.shadow-z-3, #container.landing .subtopic-container .subtopic-card:hover {
+.shadow-z-3, .post-card:hover, #container.landing .subtopic-container .subtopic-card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
 .shadow-z-4 {
@@ -9818,6 +9818,8 @@ button.close {
     border-bottom-right-radius: 2px; }
     .post-card .img-frame img {
       width: 110px; }
+  .post-card:hover {
+    transition: box-shadow .2s ease-in; }
   .post-card .text-container {
     float: left;
     width: calc(100% - 200px);
@@ -14775,7 +14777,7 @@ button.close {
 .shadow-z-2-hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.28); }
 
-.shadow-z-3, #container.landing .subtopic-container .subtopic-card:hover {
+.shadow-z-3, .post-card:hover, #container.landing .subtopic-container .subtopic-card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
 .shadow-z-4 {
@@ -19769,7 +19771,7 @@ button.close {
       margin-top: 10px;
       margin-bottom: 10px;
       color: #9f9f9e;
-      background: #F4F0E9;
+      background-image: url("../img/cream_dust.png");
       border-radius: 2px;
       font-size: 100%;
       display: inline-block;
@@ -19791,6 +19793,7 @@ button.close {
       font-weight: 300;
       padding-left: 50px;
       border: 0;
+      background-image: url("../img/cream_dust.png");
       border-radius: 2px; }
     #container.landing .left-inner-addon .results {
       position: absolute;
@@ -24728,7 +24731,7 @@ button.close {
 .shadow-z-2-hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.28); }
 
-.shadow-z-3, #container.landing .subtopic-container .subtopic-card:hover {
+.shadow-z-3, .post-card:hover, #container.landing .subtopic-container .subtopic-card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
 .shadow-z-4 {
@@ -29673,7 +29676,7 @@ button.close {
 .shadow-z-2-hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.28); }
 
-.shadow-z-3, #container.landing .subtopic-container .subtopic-card:hover {
+.shadow-z-3, .post-card:hover, #container.landing .subtopic-container .subtopic-card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
 .shadow-z-4 {
@@ -29726,7 +29729,8 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  background: #F4F0E9;
+  background-image: url("../img/cream_dust.png");
+  background-repeat: repeat;
   font-family: "Helvetica Neue", sans-serif; }
 
 #container {

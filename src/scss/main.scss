@@ -14,7 +14,8 @@ html, body {
   padding: 0;
   height:100%;
   width:100%;
-  background: $cream;
+  background-image: url("../img/cream_dust.png");
+  background-repeat:repeat;
   font-family: $helvetica;
 }
 

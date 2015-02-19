@@ -34,6 +34,11 @@
     }
   }
 
+  &:hover {
+    @extend .shadow-z-3;
+    transition: box-shadow .2s ease-in;
+  }
+
   .text-container {
     float: left;
     width: calc(100% - 200px);
