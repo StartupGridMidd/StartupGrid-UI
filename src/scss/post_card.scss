@@ -35,7 +35,7 @@
   }
 
   &:hover {
-    @extend .shadow-z-3;
+    @extend .shadow-z-2;
     transition: box-shadow .2s ease-in;
   }
 

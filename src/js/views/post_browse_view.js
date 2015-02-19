@@ -25,7 +25,7 @@ var PostBrowseView = Backbone.View.extend({
   initialize: function(params) {
     _.bindAll(this, "render", "addPost", "loadMore", "tagChange");
     this.sidebarModel = new SidebarModel({tagId: params.tagId});
-    this.navModel = new NavModel();
+    this.navModel = new NavModel({page: "post_browse"});
     this.scroller = new Scroller();
     this.listenTo(this.scroller, "scroll:nearBottom", this.loadMore);
     this.listenTo(this.sidebarModel, "change:tagId", this.tagChange);

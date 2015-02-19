@@ -37,6 +37,9 @@ html, body {
       font-weight: 300;
       font-size: 16px;
     }
+    .navbar-toggle {
+      background-color: hsl(0, 0%, 87%);
+    }
     .main-search {
       & > * {
         height: 40px;
@@ -46,7 +49,6 @@ html, body {
         position:relative;
         input {
           height: 40px;
-          width: 300px;
           border:0;
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
@@ -59,9 +61,13 @@ html, body {
           -o-transition: width .2s linear;
           -moz-transition: width .2s linear;
           -webkit-transition: width .2s linear;
-          &:focus {
-            width:400px;
-            outline:none;
+          &:focus {outline:none;}
+          @media (min-width: 985px) {
+            width: 280px;
+            &:focus {
+              width:400px;
+              outline:none;
+            }
           }
         }
         .results {

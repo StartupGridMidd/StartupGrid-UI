@@ -15,9 +15,18 @@ var Scroller = require("../utilities/scroller");
 var AuthorBrowseView = Backbone.View.extend({
   tagName: "div",
   id: "container",
+  events: {
+    "focus #nav-search": "navFocus"
+  },
+  navFocus: function(e) {
+    e.preventDefault();
+    // var query = $(e.currentTarget).val();
+    // var path = query.length ? "search/" + encodeURIComponent(query) : "search";
+    window.router.navigate("search", {trigger: true});
+  },
   initialize: function() {
     _.bindAll(this, 'render', 'addAuthor', 'loadMore');
-    this.navModel = new NavModel();
+    this.navModel = new NavModel({page: "authors"});
     this.scroller = new Scroller();
     this.navView = new NavView({model: this.navModel});
     this.collection = new AuthorCollection();
@@ -48,7 +57,6 @@ var AuthorBrowseView = Backbone.View.extend({
   },
   render: function() {
     this.loading = false;
-    this.navView = new NavView({model: this.navModel});
     this.$el.html(templates.author_browse.render());
     this.$("#nav-container").html(this.navView.el);
     this.collection.getFirstPage();

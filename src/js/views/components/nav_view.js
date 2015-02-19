@@ -24,10 +24,9 @@ var NavView = Backbone.View.extend({
   },
   render: function() {
     var pages = this.model.get("pages");
+    var currentPage = this.model.get("page");
     _.each(pages, function(page) {
-      var pathname = window.location.pathname;
-      var path = pathname === "/" ? window.location.hash.substring(1) : pathname;
-      page.active = page.path === path;
+      page.active = page.path === currentPage;
     });
     this.$el.html(templates.nav.render(this.model.toJSON()));
   },
@@ -40,7 +39,6 @@ var NavView = Backbone.View.extend({
   goToPage: function(e) {
     e.preventDefault(); e.stopPropagation();
     var path = $(e.currentTarget).attr("href");
-    console.log(path);
     window.router.navigate(path, {trigger: true});
   },
   search: function(e) {

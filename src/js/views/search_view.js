@@ -20,7 +20,7 @@ var SearchView = Backbone.View.extend({
   },
   initialize: function(params) {
     _.bindAll(this, 'queryChange');
-    this.navModel = new NavModel({query: params.query});
+    this.navModel = new NavModel({query: params.query, page: "search"});
     this.scroller = new Scroller();
     this.collection = new SearchedPostCollection();
     this.listenTo(this.collection, 'add', this.addPost);

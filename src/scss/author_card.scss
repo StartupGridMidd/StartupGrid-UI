@@ -9,6 +9,7 @@
   @extend .shadow-z-1;
   &:hover {
     @extend .shadow-z-2;
+    cursor: pointer;
   }
 
   float: left;
